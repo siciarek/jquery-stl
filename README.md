@@ -14,18 +14,18 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
 
 ## Limitations
 
-- At the moment constructors are called in jQuery way, with optional size value:
+At the moment constructors should be called in jQuery way, with optional parameter:
 
     var vector1 = $.stl.vector();
     var vector2 = $.stl.vector(34);
 
-- Destructor, if needed, should be called explicitly:
+Destructor, if needed, should be called explicitly:
 
     vector1.destroy();
 
-- There is no need nor possibility to Template support &lt;T&gt;.
+There is no need nor possibility to Template support &lt;T&gt;.
 
-- Common operators are implemented with methods:
+Common operators are implemented with methods:
 
     operator=  : eq(obj)
     operator[] : get(n)
@@ -42,21 +42,40 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
 
 vector
 
-    var vector1 = $.stl.vector();
+    var myvector = $.stl.vector();
 
-    vector1.push_back(4);
-    vector1.push_back(23);
-    vector1.push_back(19);
+    var sum = 0;
+    myvector.push_back(100);
+    myvector.push_back(200);
+    myvector.push_back(300);
 
-    while(vector1.size() > 0) {
-        alert(vector1.pop_back());
+    while (!myvector.empty()) {
+        sum += myvector.back();
+        myvector.pop_back();
     }
+
+deque
+
+    var mydeque = $.stl.deque();
+    var output = [];
+
+    mydeque.push_back(100);
+    mydeque.push_back(200);
+    mydeque.push_back(300);
+
+    while (!mydeque.empty()) {
+        output.push(mydeque.front());
+        mydeque.pop_front();
+    }
+    
+    alert(output.toSource());
+    
 
 #### Container adaptors 
 
 stack
 
-    var stack = $.stl.stack($.stl.vector());
+    var stack = $.stl.stack();
 
     stack.push(100);
     stack.push(200);
