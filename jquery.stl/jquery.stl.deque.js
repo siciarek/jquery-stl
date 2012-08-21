@@ -1,5 +1,5 @@
 /**
- * jQuery STL stack Plugin v1.0b
+ * jQuery STL deque Plugin v1.0b
  * https://github.com/siciarek/jquery-stl
  *
  * Copyright 2012, Jacek Siciarek
@@ -9,17 +9,13 @@
  */
 (function ($, document, undefined) {
 
-    $.stl.stack = function (container) {
+    $.stl.deque = function (size) {
 
-        var containerMembers = $.stl.getContainerAdaptorMembers({
-            front: true,
-            back: true
-        });
-
+        var containerMembers = $.stl.getContainerMembers();
         var uniqueMembers = {};
 
         var instance = $.extend({}, containerMembers, uniqueMembers);
-        instance.new(container);
+        instance.new(size);
         return instance;
     };
 

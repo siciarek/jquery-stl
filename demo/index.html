@@ -9,41 +9,119 @@
     <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
 
     <script type="text/javascript" src="../jquery.stl.js"></script>
+
+    <!-- Sequence Containers: -->
     <script type="text/javascript" src="../jquery.stl/jquery.stl.vector.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.deque.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.list.js"></script>
+
+    <!-- Associative Containers: -->
+
+    <!-- Container Adaptors: -->
     <script type="text/javascript" src="../jquery.stl/jquery.stl.stack.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.queue.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.priority_queue.js"></script>
+
 </head>
 <body>
 
-<h1>JaySic jQuery STL Demo Page</h1>
+<pre id="console"></pre>
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        var vector1 = $.stl.vector();
-        alert(vector1.size_type);
-
-        vector1.push_back(4);
-        vector1.push_back(23);
-        vector1.push_back(19);
-
-        alert(vector1.toSource());
-
-        while(vector1.size() > 0) {
-            alert(vector1.pop_back());
+    function print(string) {
+        if (typeof string == 'undefined') {
+            string = '';
         }
 
-        alert(vector1.toSource());
+        $('#console').append(string);
+    }
 
-        var stack = $.stl.stack($.stl.vector());
+    function println(string) {
 
-        stack.push(100);
-        stack.push(200);
-        stack.push(300);
-        stack.push(400);
+        if (typeof string == 'undefined') {
+            string = '';
+        }
 
-        while(stack.empty() == false)
-        {
-            alert(stack.pop());
+        $('#console').append(string + "\n");
+    }
+
+    function endl() {
+        println();
+    }
+
+    $(document).ready(function () {
+
+        var deque = $.stl.deque();
+        var list = $.stl.list();
+
+        // --------------------------------------------
+
+        println('jQuery.stl.vector() demo');endl();
+
+        var myvector = $.stl.vector();
+
+        var sum = 0;
+        myvector.push_back(100);
+        myvector.push_back(200);
+        myvector.push_back(300);
+
+        while (!myvector.empty()) {
+            sum += myvector.back();
+            myvector.pop_back();
+        }
+
+        print("The elements of myvector summed "); print(sum); endl(); endl();
+
+        // --------------------------------------------
+
+        println('jQuery.stl.stack() demo');endl();
+
+        var mystack = $.stl.stack();
+
+        print("pushing elements: ");
+
+        for(var i = 0; i < 8; i+=2) {
+            print(" "); print(i);
+            mystack.push (i);
+        }
+
+        endl();
+
+        print("mystack contains: ");
+
+        print(" "); print(mystack.pop());
+
+        while (!mystack.empty()) {
+            print(" "); print(mystack.top());
+            mystack.pop();
+        }
+
+        endl();
+        endl();
+
+        // ---------------------------------------------
+
+        println('jQuery.stl.queue() demo');endl();
+
+        var myqueue = $.stl.queue();
+
+        print("pushing elements: ");
+
+        for(var i = 0; i < 8; i+=2) {
+            print(" "); print(i);
+            myqueue.push (i);
+        }
+
+        endl();
+
+        print("myqueue contains: ");
+
+        print(" "); print(myqueue.pop());
+
+        while (!myqueue.empty()) {
+            print(" "); print(myqueue.front());
+            myqueue.pop();
         }
     });
 

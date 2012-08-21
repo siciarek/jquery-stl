@@ -1,5 +1,5 @@
 /**
- * jQuery STL stack Plugin v1.0b
+ * jQuery STL priority_queue Plugin v1.0b
  * https://github.com/siciarek/jquery-stl
  *
  * Copyright 2012, Jacek Siciarek
@@ -9,7 +9,9 @@
  */
 (function ($, document, undefined) {
 
-    $.stl.stack = function (container) {
+    $.stl.priority_queue = function (container) {
+
+        throw 'Not implemented yet';
 
         var containerMembers = $.stl.getContainerAdaptorMembers({
             front: true,

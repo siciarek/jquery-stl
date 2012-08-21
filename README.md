@@ -1,7 +1,8 @@
 jquery-stl
 ==========
 
-C++ Standard Template Library port (containers, iterators, algorithms, etc) for jquery
+C++ Standard Template Library port (containers, iterators, algorithms, etc) for jquery.
+According to [STL Containers - C++ Reference](http://www.cplusplus.com/reference/stl/)
 
 ## Installation
 
@@ -10,6 +11,28 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
     <script type="text/javascript" src="/path/to/jquery.stl.js"></script>
     <script type="text/javascript" src="/path/to/jquery.stl/jquery.stl.vector.js"></script>
     <script type="text/javascript" src="/path/to/jquery.stl/jquery.stl.stack.js"></script>
+
+## Limitations
+
+- At the moment constructors are called in jQuery way, with optional size value:
+
+    var vector1 = $.stl.vector();
+    var vector2 = $.stl.vector(34);
+
+- Destructor, if needed, should be called explicitly:
+
+    vector1.destroy();
+
+- There is no need nor possibility to Template support &lt;T&gt;.
+
+- Common operators are implemented with methods:
+
+    operator=  : eq(obj)
+    operator[] : get(n)
+
+## Demo page
+
+[http://siciarek.linuxpl.info/jquery-stl/demo/index.html](http://siciarek.linuxpl.info/jquery-stl/demo/index.html)
 
 ## Usage
 
