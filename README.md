@@ -17,7 +17,7 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
 
 #### Sequences
 
-##### vector
+vector
 
     var vector1 = $.stl.vector();
 
@@ -29,7 +29,9 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
         alert(vector1.pop_back());
     }
 
-### stack
+#### Container adaptors 
+
+stack
 
     var stack = $.stl.stack($.stl.vector());
 
