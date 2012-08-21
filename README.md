@@ -75,7 +75,7 @@ deque
 
 stack
 
-    var stack = $.stl.stack($.stl.vector());
+    var stack = $.stl.stack();
 
     stack.push(100);
     stack.push(200);
