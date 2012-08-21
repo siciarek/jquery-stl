@@ -158,22 +158,22 @@
                     if (this.size() == 0) {
                         return null;
                     }
-                    return this.at(0);
+                    return this.container[0];
                 },
 
                 end: function () {
                     if (this.size() == 0) {
                         return null;
                     }
-                    return this.at(this.size() - 1);
+                    return this.container[this.size() - 1];
                 },
 
                 rbegin: function () {
-                    return this.begin();
+                    return this.end();
                 },
 
                 rend: function () {
-                    return this.end();
+                    return this.begin();
                 },
 
 //// capacity:
@@ -257,7 +257,7 @@
                     if (this.size() == 0) {
                         return null;
                     }
-                    return this.at(0);
+                    return this.container[0];
                 },
 
                 /**
@@ -268,7 +268,7 @@
                     if (this.size() == 0) {
                         return null;
                     }
-                    return this.at(this.size() - 1);
+                    return this.container[this.size() - 1];
                 },
 
                 /**

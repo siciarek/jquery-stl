@@ -52,8 +52,79 @@
 
     $(document).ready(function () {
 
-        var deque = $.stl.deque();
-        var list = $.stl.list();
+        println('jQuery.stl.list() demo');endl();
+
+        var mydoubles = [ 12.15,  2.72, 73.0,  12.77,  3.14,
+            12.77, 73.35, 72.25, 15.3,  72.25 ];
+
+        var out = [];
+
+        var mylist= $.stl.list();
+
+        println(mydoubles.toSource());
+
+        for(var i = 0; i < mydoubles.length; i++) {
+            mylist.push_front(mydoubles[i]);
+        }
+        out = [];
+        while (!mylist.empty()) {
+            out.push(mylist.back());
+            mylist.pop_back();
+        }
+
+        println(out.toSource());
+
+        println(mydoubles.toSource());
+
+        for(var i = 0; i < mydoubles.length; i++) {
+            mylist.push_front(mydoubles[i]);
+        }
+
+        mylist.unique();
+
+        out = [];
+        while (!mylist.empty()) {
+            out.push(mylist.back());
+            mylist.pop_back();
+        }
+
+        println(out.toSource());
+
+        println(mydoubles.toSource());
+
+        for(var i = 0; i < mydoubles.length; i++) {
+            mylist.push_front(mydoubles[i]);
+        }
+
+        mylist.reverse();
+
+        out = [];
+        while (!mylist.empty()) {
+            out.push(mylist.back());
+            mylist.pop_back();
+        }
+
+        println(out.toSource());
+
+        println(mydoubles.toSource());
+
+        for(var i = 0; i < mydoubles.length; i++) {
+            mylist.push_front(mydoubles[i]);
+        }
+
+        mylist.unique();
+        mylist.remove(72.25);
+        mylist.remove(12.15);
+
+        out = [];
+        while (!mylist.empty()) {
+            out.push(mylist.back());
+            mylist.pop_back();
+        }
+
+        println(out.toSource());
+
+        endl();
 
         // --------------------------------------------
 
@@ -72,6 +143,22 @@
         }
 
         print("The elements of myvector summed "); print(sum); endl(); endl();
+
+        println('jQuery.stl.deque() demo');endl();
+
+        var mydeque = $.stl.deque();
+        var output = [];
+
+        mydeque.push_back(100);
+        mydeque.push_back(200);
+        mydeque.push_back(300);
+
+        while (!mydeque.empty()) {
+            output.push(mydeque.front());
+            mydeque.pop_front();
+        }
+
+        println(output.toSource());
 
         // --------------------------------------------
 
