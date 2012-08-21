@@ -14,7 +14,7 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
 
 ## Limitations
 
-At the moment constructors are called in jQuery way, with optional size value:
+At the moment constructors should be called in jQuery way, with optional parameter:
 
     var vector1 = $.stl.vector();
     var vector2 = $.stl.vector(34);
