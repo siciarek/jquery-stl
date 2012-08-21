@@ -1,7 +1,7 @@
 jquery-stl
 ==========
 
-C++ Standard Template Library (containers, iterators, algorithms, etc) for jquery
+C++ Standard Template Library port (containers, iterators, algorithms, etc) for jquery
 
 ## Installation
 
@@ -13,7 +13,11 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
 
 ## Usage
 
-### vector
+### Container classes
+
+#### Sequences
+
+##### vector
 
     var vector1 = $.stl.vector();
 
