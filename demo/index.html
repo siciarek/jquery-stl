@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>JaySic jQuery STL Demo Page</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="text/css" media="all" rel="stylesheet" href="main.css"/>
+    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+
+    <script type="text/javascript" src="../jquery.stl.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.vector.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.stack.js"></script>
+</head>
+<body>
+
+<h1>JaySic jQuery STL Demo Page</h1>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var vector1 = $.stl.vector();
+        alert(vector1.size_type);
+
+        vector1.push_back(4);
+        vector1.push_back(23);
+        vector1.push_back(19);
+
+        alert(vector1.toSource());
+
+        while(vector1.size() > 0) {
+            alert(vector1.pop_back());
+        }
+
+        alert(vector1.toSource());
+
+        var stack = $.stl.stack($.stl.vector());
+
+        stack.push(100);
+        stack.push(200);
+        stack.push(300);
+        stack.push(400);
+
+        while(stack.empty() == false)
+        {
+            alert(stack.pop());
+        }
+    });
+
+</script>
+
+</body>
+</html>
