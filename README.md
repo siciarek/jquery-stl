@@ -42,15 +42,34 @@ Common operators are implemented with methods:
 
 vector
 
-    var vector1 = $.stl.vector();
+    var myvector = $.stl.vector();
 
-    vector1.push_back(4);
-    vector1.push_back(23);
-    vector1.push_back(19);
+    var sum = 0;
+    myvector.push_back(100);
+    myvector.push_back(200);
+    myvector.push_back(300);
 
-    while(vector1.size() > 0) {
-        alert(vector1.pop_back());
+    while (!myvector.empty()) {
+        sum += myvector.back();
+        myvector.pop_back();
     }
+
+deque
+
+    var mydeque = $.stl.deque();
+    var output = [];
+
+    mydeque.push_back(100);
+    mydeque.push_back(200);
+    mydeque.push_back(300);
+
+    while (!mydeque.empty()) {
+        output.push(mydeque.front());
+        mydeque.pop_front();
+    }
+    
+    alert(output.toSource());
+    
 
 #### Container adaptors 
 
