@@ -14,18 +14,18 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
 
 ## Limitations
 
-- At the moment constructors are called in jQuery way, with optional size value:
+At the moment constructors are called in jQuery way, with optional size value:
 
     var vector1 = $.stl.vector();
     var vector2 = $.stl.vector(34);
 
-- Destructor, if needed, should be called explicitly:
+Destructor, if needed, should be called explicitly:
 
     vector1.destroy();
 
-- There is no need nor possibility to Template support &lt;T&gt;.
+There is no need nor possibility to Template support &lt;T&gt;.
 
-- Common operators are implemented with methods:
+Common operators are implemented with methods:
 
     operator=  : eq(obj)
     operator[] : get(n)
