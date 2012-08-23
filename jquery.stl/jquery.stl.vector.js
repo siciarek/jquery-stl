@@ -48,7 +48,7 @@
             }
         };
 
-        var instance = $.extend({}, containerMembers, uniqueMembers);
+        var instance = $.extend({type: 'vector'}, containerMembers, uniqueMembers);
         instance.new(size);
         return instance;
     };

@@ -27,7 +27,7 @@
             }
         };
 
-        var instance = $.extend({}, containerMembers, uniqueMembers);
+        var instance = $.extend({type: 'queue'}, containerMembers, uniqueMembers);
         instance.new(container);
         return instance;
     };

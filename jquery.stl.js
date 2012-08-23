@@ -109,13 +109,14 @@
             return temp;
         },
 
-        getContainerMembers: function (exclude) {
+        getContainerMembers: function (exclude, assoc) {
 
             exclude = exclude || {};
+            assoc = assoc || false;
 
             var temp = {};
 
-            var instance = {
+            var sequence = {
 
                 container: [],
 
@@ -382,6 +383,14 @@
 
                 pop_back: function () {
                     return this.container.pop();
+                }
+
+            };
+
+            var associative = {
+
+                new: function (size) {
+
                 },
 
 // observers:
@@ -417,9 +426,36 @@
                 }
             };
 
-            for (var key in instance) {
+            var assoc_exclude = {
+                resize: true,
+                front: true,
+                back: true,
+
+                at: true,
+                assign: true,
+
+                push_front: true,
+                pop_front: true,
+                push_back: true,
+                pop_back: true
+            };
+
+            for (var key in sequence) {
+
+                if ((assoc == true) && (typeof assoc_exclude[key] != 'undefined')) {
+                    continue;
+                }
+
                 if (typeof exclude[key] == 'undefined') {
-                    temp[key] = instance[key];
+                    temp[key] = sequence[key];
+                }
+            }
+
+            if (assoc == true) {
+                for (var key in associative) {
+                    if (typeof exclude[key] == 'undefined') {
+                        temp[key] = associative[key];
+                    }
                 }
             }
 

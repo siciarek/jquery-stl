@@ -18,7 +18,7 @@
 
         var uniqueMembers = {};
 
-        var instance = $.extend({}, containerMembers, uniqueMembers);
+        var instance = $.extend({type: 'stack'}, containerMembers, uniqueMembers);
         instance.new(container);
         return instance;
     };

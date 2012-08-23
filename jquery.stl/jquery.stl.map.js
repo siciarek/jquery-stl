@@ -1,5 +1,5 @@
 /**
- * jQuery STL deque Plugin v1.0b
+ * jQuery STL map Plugin v1.0b
  * https://github.com/siciarek/jquery-stl
  *
  * Copyright 2012, Jacek Siciarek
@@ -9,12 +9,14 @@
  */
 (function ($, document, undefined) {
 
-    $.stl.deque = function (size) {
+    $.stl.map = function (size) {
 
-        var containerMembers = $.stl.getContainerMembers();
+        var excludedMembers = {};
+
+        var containerMembers = $.stl.getContainerMembers(excludedMembers, true);
         var uniqueMembers = {};
 
-        var instance = $.extend({type: 'deque'}, containerMembers, uniqueMembers);
+        var instance = $.extend({type: 'map'}, containerMembers, uniqueMembers);
         instance.new(size);
         return instance;
     };

@@ -1,5 +1,5 @@
 /**
- * jQuery STL deque Plugin v1.0b
+ * jQuery STL multimap Plugin v1.0b
  * https://github.com/siciarek/jquery-stl
  *
  * Copyright 2012, Jacek Siciarek
@@ -9,12 +9,16 @@
  */
 (function ($, document, undefined) {
 
-    $.stl.deque = function (size) {
+    $.stl.multimap = function (size) {
 
-        var containerMembers = $.stl.getContainerMembers();
+        var excludedMembers = {
+            get: true
+        };
+
+        var containerMembers = $.stl.getContainerMembers(excludedMembers, true);
         var uniqueMembers = {};
 
-        var instance = $.extend({type: 'deque'}, containerMembers, uniqueMembers);
+        var instance = $.extend({type: 'multimap'}, containerMembers, uniqueMembers);
         instance.new(size);
         return instance;
     };

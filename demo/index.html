@@ -16,6 +16,13 @@
     <script type="text/javascript" src="../jquery.stl/jquery.stl.list.js"></script>
 
     <!-- Associative Containers: -->
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.set.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.multiset.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.map.js"></script>
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.multimap.js"></script>
+
+    <!-- Other Containers: -->
+    <script type="text/javascript" src="../jquery.stl/jquery.stl.bitset.js"></script>
 
     <!-- Container Adaptors: -->
     <script type="text/javascript" src="../jquery.stl/jquery.stl.stack.js"></script>
@@ -52,7 +59,64 @@
 
     $(document).ready(function () {
 
-        println('jQuery.stl.list() demo');endl();
+        endl();
+        println('jQuery.stl.bitset() members:');
+        endl();
+
+        var mybitset = jQuery.stl.bitset();
+
+        for(var key in mybitset)
+        {
+            println(key);
+        }
+
+        endl();
+        println('jQuery.stl.set() members:');
+        endl();
+
+        var myset = jQuery.stl.set();
+
+        for(var key in myset)
+        {
+            println(key);
+        }
+
+        endl();
+        println('jQuery.stl.multiset() members:');
+        endl();
+
+        var mymultiset = jQuery.stl.multiset();
+
+        for(var key in mymultiset)
+        {
+            println(key);
+        }
+
+        endl();
+        println('jQuery.stl.map() members:');
+        endl();
+
+        var mymap = jQuery.stl.map();
+
+        for(var key in mymap)
+        {
+            println(key);
+        }
+
+        endl();
+        println('jQuery.stl.multimap() members:');
+        endl();
+
+        var mymultimap = jQuery.stl.multimap();
+
+        for(var key in mymultimap)
+        {
+            println(key);
+        }
+
+        endl();
+        println('jQuery.stl.list() demo');
+        endl();
 
         var mydoubles = [ 12.15,  2.72, 73.0,  12.77,  3.14,
             12.77, 73.35, 72.25, 15.3,  72.25 ];
@@ -170,7 +234,7 @@
 
         for(var i = 0; i < 8; i+=2) {
             print(" "); print(i);
-            mystack.push (i);
+            mystack.push(i);
         }
 
         endl();

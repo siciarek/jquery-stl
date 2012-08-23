@@ -70,7 +70,7 @@
             }
         };
 
-        var instance = $.extend({}, containerMembers, uniqueMembers);
+        var instance = $.extend({type: 'list'}, containerMembers, uniqueMembers);
         instance.new(size);
         return instance;
     };
