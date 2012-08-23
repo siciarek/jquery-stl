@@ -16,19 +16,25 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
 
 At the moment constructors should be called in jQuery way, with optional parameter:
 
+```js
     var vector1 = $.stl.vector();
     var vector2 = $.stl.vector(34);
+```
 
-Destructor, if needed, should be called explicitly:
+Destructor, if needed, should be called explicitly, but it does not realy destroy instance:
 
-    vector1.destroy();
+```js
+    vector1.destructor();
+```
 
 There is no need nor possibility to Template support &lt;T&gt;.
 
 Common operators are implemented with methods:
 
+```js
     operator=  : eq(obj)
     operator[] : get(n)
+```
 
 ## Demo page
 
@@ -42,6 +48,7 @@ Common operators are implemented with methods:
 
 vector
 
+```js
     var myvector = $.stl.vector();
 
     var sum = 0;
@@ -53,9 +60,11 @@ vector
         sum += myvector.back();
         myvector.pop_back();
     }
+```
 
 deque
 
+```js
     var mydeque = $.stl.deque();
     var output = [];
 
@@ -69,12 +78,13 @@ deque
     }
     
     alert(output.toSource());
-    
+```    
 
 #### Container adaptors 
 
 stack
 
+```js
     var stack = $.stl.stack();
 
     stack.push(100);
@@ -85,6 +95,7 @@ stack
     while(stack.empty() == false) {
         alert(stack.pop());
     }
+```
 
 ## Development
 
