@@ -11,7 +11,7 @@
 
     $.stl.queue = function (container) {
 
-        var containerMembers = $.stl.getContainerAdaptorMembers({
+        var defaultMembers = $.stl.getContainerAdaptorMembers({
             top: true
         });
 
@@ -27,8 +27,26 @@
             }
         };
 
-        var instance = $.extend({type: 'queue'}, containerMembers, uniqueMembers);
+        var containerShouldHave = [
+            'front',
+            'back',
+            'push_back',
+            'pop_back'
+        ];
+
+        var instance = $.extend({type: 'queue'}, defaultMembers, uniqueMembers);
+
         instance.new(container);
+
+        for(var i in containerShouldHave)
+        {
+            var method = containerShouldHave[i];
+            if(typeof instance.container[method] == 'undefined')
+            {
+                throw 'Container has no required interface';
+            }
+        }
+
         return instance;
     };
 

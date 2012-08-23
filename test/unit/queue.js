@@ -1,64 +1,64 @@
 
-module("stack", {
+module("queue", {
     setup: function() {
-        stack = jQuery.stl.stack();
+        queue = jQuery.stl.queue();
     },
     teardown: function() {
-        delete stack;
+        delete queue;
     }
 });
 
-test("size, empty, top, push, pop methods test", 104, function () {
+test("size, empty, front, back, push, pop methods test", 104, function () {
     var size = 25;
     var temp = [];
 
-    strictEqual(stack.empty(), true, 'empty stack');
-    strictEqual(stack.size(), 0, 'empty stack size check');
+    strictEqual(queue.empty(), true, 'empty queue');
+    strictEqual(queue.size(), 0, 'empty queue size check');
 
     for(var i = 0; i < size; i++) {
         var element = Math.random();
-        stack.push(element);
-        strictEqual(element, stack.top(), 'top');
-        temp.push(element);
+        queue.push(element);
+        strictEqual(element, queue.back(), 'back');
+        temp.unshift(element);
     }
 
-    strictEqual(stack.empty(), false, 'not empty stack');
-    strictEqual(stack.size(), size, 'not empty stack size check');
+    strictEqual(queue.empty(), false, 'not empty queue');
+    strictEqual(queue.size(), size, 'not empty queue size check');
 
     for(i = temp.length - 1; i >= 0; i--) {
-        strictEqual(i + 1, stack.size(), 'size');
-        strictEqual(temp[i], stack.top(), 'top');
-        strictEqual(temp[i], stack.pop(), 'pop');
+        strictEqual(i + 1, queue.size(), 'size');
+        strictEqual(temp[i], queue.front(), 'top');
+        strictEqual(temp[i], queue.pop(), 'pop');
     }
 });
 
 test("constructor test (no params)", 5, function () {
-    stack = null;
+    queue = null;
 
-    ok(stack == null, 'Initially variable should be NULL');
+    ok(queue == null, 'Initially variable should be NULL');
 
-    stack = jQuery.stl.stack();
+    queue = jQuery.stl.queue();
 
-    ok(stack != null, 'Constructor returned value != NULL');
-    ok(typeof stack.new != 'undefined', 'stack has defined constructor');
-    equal(typeof stack, 'object', 'Constructor returned object');
-    equal(stack.type, 'stack', 'Constructor returned proper stack object');
+    ok(queue != null, 'Constructor returned value != NULL');
+    ok(typeof queue.new != 'undefined', 'queue has defined constructor');
+    equal(typeof queue, 'object', 'Constructor returned object');
+    equal(queue.type, 'queue', 'Constructor returned proper queue object');
 });
 
 test("constructor test (with params)", 7, function () {
 
-    equal(stack.container.type, 'deque', 'if connstructor is called with no params container should be "deque"');
+    equal(queue.container.type, 'deque', 'if connstructor is called with no params container should be "deque"');
 
     var vector = $.stl.vector();
 
-    stack = $.stl.stack(vector);
+    queue = $.stl.queue(vector);
 
-    equal(stack.container.type, 'vector', 'you can change container');
+    equal(queue.container.type, 'vector', 'you can change container');
 
     throws(
         function () {
             var set = $.stl.set();
-            stack = $.stl.stack(set);
+            queue = $.stl.queue(set);
         },
         /Container has no required interface/,
         'constructor should throw exception if container given as parameter has no required interface'
@@ -66,7 +66,7 @@ test("constructor test (with params)", 7, function () {
 
     throws(
         function () {
-            stack = $.stl.stack({});
+            queue = $.stl.queue({});
         },
         /Container has no required interface/,
         'constructor should throw exception if container given as parameter has no required interface'
@@ -74,7 +74,7 @@ test("constructor test (with params)", 7, function () {
 
     throws(
         function () {
-            stack = $.stl.stack("ABC");
+            queue = $.stl.queue("ABC");
         },
         /Container has no proper type/,
         'constructor should throw exception if container given as parameter has no proper type'
@@ -82,7 +82,7 @@ test("constructor test (with params)", 7, function () {
 
     throws(
         function () {
-            stack = $.stl.stack(123);
+            queue = $.stl.queue(123);
         },
         /Container has no proper type/,
         'constructor should throw exception if container given as parameter has no proper type'
@@ -90,7 +90,7 @@ test("constructor test (with params)", 7, function () {
 
     throws(
         function () {
-            stack = $.stl.stack(function(){});
+            queue = $.stl.queue(function(){});
         },
         /Container has no proper type/,
         'constructor should throw exception if container given as parameter has no proper type'
@@ -100,18 +100,18 @@ test("constructor test (with params)", 7, function () {
 
 test("members existence test", function () {
 
-    var expectedMembers = stlTypesMembers.stack;
+    var expectedMembers = stlTypesMembers.queue;
 
     var members = {variables: [], methods: []};
 
-    for(var key in stack) {
+    for(var key in queue) {
 
         if(key == 'container')
         {
             continue;
         }
 
-        if(typeof stack[key] == 'function')
+        if(typeof queue[key] == 'function')
         {
             members['methods'].push(key);
         }

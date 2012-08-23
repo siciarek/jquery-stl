@@ -1,4 +1,48 @@
 var stlTypesMembers = {
+
+    stack: {
+        variables: [
+            'type'
+        ],
+        methods: [
+            "new",
+            'size',
+            'empty',
+            'top',
+            'push',
+            'pop'
+        ]
+    },
+
+    queue: {
+        variables: [
+            'type'
+        ],
+        methods: [
+            "new",
+            'size',
+            'empty',
+            'front',
+            'back',
+            'push',
+            'pop'
+        ]
+    },
+
+    priority_queue: {
+        variables: [
+            'type'
+        ],
+        methods: [
+            "new",
+            'size',
+            'empty',
+            'top',
+            'push',
+            'pop'
+        ]
+    },
+
     vector: {
         variables: [
             "type"
