@@ -32,8 +32,16 @@
                  */
                 new: function (container) {
 
+
                     if (typeof container == 'undefined') {
+
+
                         container = $.stl.deque();
+                    }
+
+                    if(typeof container != 'object')
+                    {
+                        throw 'Container has no proper type';
                     }
 
                     this.container = container;
@@ -137,9 +145,9 @@
                 },
 
                 /**
-                 * Destructor - has to be called explicitly
+                 * Destructor - TODO: make it work ;-)
                  */
-                destroy: function () {
+                destructor: function () {
                     delete this;
                 },
 
