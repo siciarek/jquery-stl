@@ -11,18 +11,74 @@
 
     $.stl.priority_queue = function (container) {
 
-        throw 'Not implemented yet';
-
-        var containerMembers = $.stl.getContainerAdaptorMembers({
+        var defaultMembers = $.stl.getContainerAdaptorMembers({
             front: true,
             back: true
         });
 
-        var uniqueMembers = {};
+        var uniqueMembers = {
+            /**
+             * Constructor
+             *
+             * @param container
+             */
+            new: function (container) {
 
-        var instance = $.extend({type: 'priority_queue'}, containerMembers, uniqueMembers);
+                if (typeof container == 'undefined') {
+                    container = $.stl.vector();
+                }
+
+                if(typeof container != 'object')
+                {
+                    throw 'Container has no proper type';
+                }
+
+                this.container = container;
+            },
+
+            push: function(x) {
+                this.container.push_back(x);
+                this.container.container = this.container.container.sort(function(a, b){ return a - b });
+                this.container.container = this.container.container.reverse();
+            },
+
+            pop: function(x) {
+                this.container.container = this.container.container.reverse();
+                var element = this.container.pop_back();
+                this.container.container = this.container.container.reverse();
+                return element;
+
+                alert(this.top());
+            },
+
+            /**
+             * Returns element from the top of the stack
+             * @return {*}
+             */
+            top: function () {
+                return this.container.front();
+            }
+        };
+
+        var instance = $.extend({type: 'priority_queue'}, defaultMembers, uniqueMembers);
+
+        var containerShouldHave = [
+            'front',
+            'push_back',
+            'pop_back'
+        ];
+
         instance.new(container);
-        return instance;
-    };
+
+        for(var i in containerShouldHave)
+        {
+            var method = containerShouldHave[i];
+            if(typeof instance.container[method] == 'undefined')
+            {
+                throw 'Container has no required interface';
+            }
+        }
+
+        return instance;    };
 
 })(jQuery, document);

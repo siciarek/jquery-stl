@@ -73,5 +73,76 @@ var stlTypesMembers = {
             "capacity",
             "reserve"
         ]
+    },
+
+    deque: {
+        variables: [
+            "type"
+        ],
+        methods: [
+            "new",
+            "destructor",
+            "eq",
+            "begin",
+            "end",
+            "rbegin",
+            "rend",
+            "size",
+            "max_size",
+            "empty",
+            "resize",
+            "front",
+            "back",
+            "get",
+            "at",
+            "assign",
+            "insert",
+            "erase",
+            "swap",
+            "clear",
+            "push_front",
+            "pop_front",
+            "push_back",
+            "pop_back"
+        ]
+    },
+
+    list: {
+        variables: [
+            "type"
+        ],
+        methods: [
+            "new",
+            "destructor",
+            "eq",
+            "begin",
+            "end",
+            "rbegin",
+            "rend",
+            "size",
+            "max_size",
+            "empty",
+            "resize",
+            "front",
+            "back",
+            "assign",
+            "insert",
+            "erase",
+            "swap",
+            "clear",
+            "push_front",
+            "pop_front",
+            "push_back",
+            "pop_back",
+
+            "splice",
+            "remove",
+            "remove_if",
+            "unique",
+            "merge",
+            "sort",
+            "reverse"
+
+        ]
     }
 };

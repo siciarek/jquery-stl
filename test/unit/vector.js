@@ -8,6 +8,30 @@ module("vector", {
     }
 });
 
+test("front and back test", function() {
+
+    var myvector = $.stl.vector();
+
+    myvector.push_back(78);
+    myvector.push_back(16);
+
+    // now front equals 78, and back 16
+
+    equal(myvector.front(), 78);
+
+    myvector = $.stl.vector();
+
+    myvector.push_back(10);
+    myvector.push_back(40);
+    myvector.push_back(90);
+
+    equal(myvector.back(), 90);
+
+    myvector.pop_back();
+
+    equal(myvector.back(), 40);
+});
+
 test("constructor test (no params)", 5, function () {
     var vector = null;
 

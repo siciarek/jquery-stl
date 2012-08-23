@@ -1,8 +1,9 @@
 jquery-stl
 ==========
 
-C++ Standard Template Library port (containers, iterators, algorithms, etc) for jquery.
-According to [STL Containers - C++ Reference](http://www.cplusplus.com/reference/stl/)
+jQuery emulator of C++ Standard Template Library (containers, iterators, algorithms, etc).
+According to [STL Containers - C++ Reference](http://www.cplusplus.com/reference/stl/).
+Can be used as C++ code to jQuery javascript translation.
 
 ## Installation
 
