@@ -10,7 +10,7 @@ Can be used for C++ code to jQuery javascript translation.
 Include scripts *after* the jQuery library (unless you are packaging scripts somehow else):
 
 ```html
-<script type="text/javascript" src="/path/to/jqstl/jquery.stl.js"></script>
+<script type="text/javascript" src="/path/to/jquery-stl/jquery.stl.js"></script>
 ```
 
 ## Limitations
