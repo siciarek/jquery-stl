@@ -54,6 +54,8 @@
             string = '';
         }
 
+//        console.log(string);
+
         string = string.replace(/</, '&lt;');
         string = string.replace(/>/, '&gt;');
 
@@ -70,6 +72,8 @@
 
     $(document).ready(function () {
 
+        cout('<vector>' + endl + endl);
+
         cout('vector::pop_back' + endl + endl);
 
         var myvector = $.stl.vector();
@@ -85,6 +89,58 @@
         }
 
         cout("The elements of myvector summed " + sum + endl);
+
+        cout(endl + endl + 'vector::swap' + endl + endl);
+
+        var first = $.stl.vector();
+        var second = $.stl.vector();
+
+        var f = [4, 5, 6];
+        var s = [104, 105, 106, 107];
+
+        for(var i in f)
+        {
+            first.push_back(f[i]);
+        }
+        for(var i in s)
+        {
+            second.push_back(s[i]);
+        }
+
+        cout('first.size() = ' + first.size() + endl);
+        cout('second.size() = ' + second.size() + endl);
+
+        cout('content of first:' + endl);
+
+        for(var i = 0; i < first.size(); i++) {
+            cout(first.at(i) + ' ' + f[i] + ' : ' + (first.at(i) == f[i]) + endl);
+        }
+
+        cout('content of second:' + endl);
+
+        for(var i = 0; i < second.size(); i++) {
+            cout(second.at(i) + ' ' + s[i] + ' : ' + (second.at(i) == s[i]) + endl);
+        }
+
+        first.swap(second);
+        cout(endl + 'first.swap(second);' + endl + endl);
+
+        cout('first.size() = ' + first.size() + endl);
+        cout('second.size() = ' + second.size() + endl);
+
+        cout('content of first:' + endl);
+
+        for(var i = 0; i < first.size(); i++) {
+            cout(first.at(i) + ' ' + s[i] + ' : ' + (first.at(i) == s[i]) + endl);
+        }
+
+        cout('content of second:' + endl);
+
+        for(var i = 0; i < second.size(); i++) {
+            cout(second.at(i) + ' ' + f[i] + ' : ' + (second.at(i) == f[i]) + endl);
+        }
+
+        first.swap({});
     });
 
 </script>

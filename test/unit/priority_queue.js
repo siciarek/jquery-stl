@@ -97,7 +97,7 @@ test("constructor test (with params)", 7, function () {
             var set = $.stl.set();
             priority_queue = $.stl.priority_queue(set);
         },
-        /Container has no required interface/,
+        JqueryStlContainerInvalidInterfaceException,
         'constructor should throw exception if container given as parameter has no required interface'
     );
 
@@ -105,7 +105,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             priority_queue = $.stl.priority_queue({});
         },
-        /Container has no required interface/,
+        JqueryStlContainerInvalidInterfaceException,
         'constructor should throw exception if container given as parameter has no required interface'
     );
 
@@ -113,7 +113,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             priority_queue = $.stl.priority_queue("ABC");
         },
-        /Container has no proper type/,
+        JqueryStlObjectTypeMismatchException,
         'constructor should throw exception if container given as parameter has no proper type'
     );
 
@@ -121,7 +121,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             priority_queue = $.stl.priority_queue(123);
         },
-        /Container has no proper type/,
+        JqueryStlObjectTypeMismatchException,
         'constructor should throw exception if container given as parameter has no proper type'
     );
 
@@ -129,7 +129,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             priority_queue = $.stl.priority_queue(function(){});
         },
-        /Container has no proper type/,
+        JqueryStlObjectTypeMismatchException,
         'constructor should throw exception if container given as parameter has no proper type'
     );
 });

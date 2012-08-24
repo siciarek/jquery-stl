@@ -43,7 +43,7 @@
             var method = containerShouldHave[i];
             if(typeof instance.container[method] == 'undefined')
             {
-                throw 'Container has no required interface';
+                throw new JqueryStlContainerInvalidInterfaceException();
             }
         }
 

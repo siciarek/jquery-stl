@@ -30,7 +30,7 @@
 
                 if(typeof container != 'object')
                 {
-                    throw 'Container has no proper type';
+                    throw new JqueryStlObjectTypeMismatchException();
                 }
 
                 this.container = container;
@@ -75,7 +75,7 @@
             var method = containerShouldHave[i];
             if(typeof instance.container[method] == 'undefined')
             {
-                throw 'Container has no required interface';
+                throw new JqueryStlContainerInvalidInterfaceException();
             }
         }
 

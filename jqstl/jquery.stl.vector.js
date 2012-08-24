@@ -24,7 +24,7 @@
 
             reserve: function (size) {
                 if (size > this.max_size()) {
-                    throw 'Max jQuery.stl.vector size is: ' + this.max_size();
+                    throw new JqueryStlMaximumContainerSizeException();
                 }
 
                 if (size > 0) {

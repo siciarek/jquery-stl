@@ -60,7 +60,7 @@ test("constructor test (with params)", 7, function () {
             var set = $.stl.set();
             stack = $.stl.stack(set);
         },
-        /Container has no required interface/,
+        JqueryStlContainerInvalidInterfaceException,
         'constructor should throw exception if container given as parameter has no required interface'
     );
 
@@ -68,7 +68,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             stack = $.stl.stack({});
         },
-        /Container has no required interface/,
+        JqueryStlContainerInvalidInterfaceException,
         'constructor should throw exception if container given as parameter has no required interface'
     );
 
@@ -76,7 +76,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             stack = $.stl.stack("ABC");
         },
-        /Container has no proper type/,
+        JqueryStlObjectTypeMismatchException,
         'constructor should throw exception if container given as parameter has no proper type'
     );
 
@@ -84,7 +84,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             stack = $.stl.stack(123);
         },
-        /Container has no proper type/,
+        JqueryStlObjectTypeMismatchException,
         'constructor should throw exception if container given as parameter has no proper type'
     );
 
@@ -92,7 +92,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             stack = $.stl.stack(function(){});
         },
-        /Container has no proper type/,
+        JqueryStlObjectTypeMismatchException,
         'constructor should throw exception if container given as parameter has no proper type'
     );
 });

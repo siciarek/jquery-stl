@@ -32,16 +32,13 @@
                  */
                 new: function (container) {
 
-
                     if (typeof container == 'undefined') {
-
-
                         container = $.stl.deque();
                     }
 
                     if(typeof container != 'object')
                     {
-                        throw 'Container has no proper type';
+                        throw new JqueryStlObjectTypeMismatchException();
                     }
 
                     this.container = container;
@@ -233,7 +230,7 @@
                     }
 
                     if (sz > this.max_size()) {
-                        throw 'Max jQuery.stl.vector size is: ' + this.max_size();
+                        throw new JqueryStlMaximumContainerSizeException();
                     }
 
                     if (sz > 0) {
@@ -287,7 +284,7 @@
                  */
                 get: function (n) {
                     if (this.size() < n + 1) {
-                        throw 'Index Out of Bound';
+                        throw new JqueryStlIndexOutOfBoundException();
                     }
 
                     return this.container[n];
@@ -301,7 +298,7 @@
                  */
                 at: function (n) {
                     if (this.size() < n + 1) {
-                        throw 'Index Out of Bound';
+                        throw new JqueryStlIndexOutOfBoundException();
                     }
 
                     return this.container[n];
@@ -322,16 +319,16 @@
                  * @param u
                  */
                 assign: function (first, last, n, u) {
-                    throw 'Not implemented yet';
+                    throw new JqueryStlNotImplementedYetException();
                 },
 
                 insert: function (pos, value) {
                     if (this.size() < pos + 1) {
-                        throw 'Index Out of Bound';
+                        throw new JqueryStlIndexOutOfBoundException();
                     }
 
                     if (pos < 0) {
-                        throw 'Index Out of Bound';
+                        throw new JqueryStlIndexOutOfBoundException();
                     }
 
                     this.container[pos] = value;
@@ -348,26 +345,56 @@
                     last = last || pos;
 
                     if (this.size() < last + 1) {
-                        throw 'Index Out of Bound';
+                        throw new JqueryStlIndexOutOfBoundException();
                     }
 
                     if (pos < 0) {
-                        throw 'Index Out of Bound';
+                        throw new JqueryStlIndexOutOfBoundException();
                     }
 
-                    for (var i = pos; i <= las; i++) {
-                        this.container[i] = null;
+                    var temp = [];
+
+                    for (var i = pos; i <= last; i++) {
+                        temp.push[this.container[i]];
                     }
+
+                    this.container = temp;
                 },
 
                 /**
                  * Swap content
-                 * Exchanges the content of the vector by the content of vec, which is another vector of the same type. Sizes may differ.
+                 * Exchanges the content of the vector by the content of vec, which is another vector of the same type.
+                 * Sizes may differ.
                  *
                  * @param vec
+                 * @throws JqueryStlObjectTypeMismatchException
                  */
                 swap: function (vec) {
+                    if(!(typeof vec == 'object' && typeof vec.type != 'undefined' && vec.type == this.type))
+                    {
+                        throw new JqueryStlObjectTypeMismatchException();
+                    }
 
+                    var temp = [];
+
+                    for(var i in this.container)
+                    {
+                        temp.push(this.container[i]);
+                    }
+
+                    this.clear();
+
+                    for(var i in vec.container)
+                    {
+                        this.push_back(vec.container[i]);
+                    }
+
+                    vec.clear();
+
+                    for(var i in temp)
+                    {
+                        vec.push_back(temp[i]);
+                    }
                 },
 
                 /**
@@ -517,6 +544,8 @@
             path = match[1];
         }
     }
+
+    document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'Exceptions' + '.js"></scr' + 'ipt>');
 
     for (var type in stltypes) {
         document.write('<scr' + 'ipt type="text/javascript" src="' + path + type + '.js"></scr' + 'ipt>');
