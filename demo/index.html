@@ -55,7 +55,7 @@
 
         cout('<vector>' + endl + endl);
 
-        cout('vector::pop_back' + endl + endl);
+        cout('*** vector::pop_back' + endl + endl);
 
         var myvector = $.stl.vector();
         var sum = 0;
@@ -91,37 +91,11 @@
         cout('first.size() = ' + first.size() + endl);
         cout('second.size() = ' + second.size() + endl);
 
-        cout('content of first:' + endl);
-
-        for(var i = 0; i < first.size(); i++) {
-            cout(first.at(i) + ' ' + f[i] + ' : ' + (first.at(i) == f[i]) + endl);
-        }
-
-        cout('content of second:' + endl);
-
-        for(var i = 0; i < second.size(); i++) {
-            cout(second.at(i) + ' ' + s[i] + ' : ' + (second.at(i) == s[i]) + endl);
-        }
-
         first.swap(second);
         cout(endl + 'first.swap(second);' + endl + endl);
 
         cout('first.size() = ' + first.size() + endl);
         cout('second.size() = ' + second.size() + endl);
-
-        cout('content of first:' + endl);
-
-        for(var i = 0; i < first.size(); i++) {
-            cout(first.at(i) + ' ' + s[i] + ' : ' + (first.at(i) == s[i]) + endl);
-        }
-
-        cout('content of second:' + endl);
-
-        for(var i = 0; i < second.size(); i++) {
-            cout(second.at(i) + ' ' + f[i] + ' : ' + (second.at(i) == f[i]) + endl);
-        }
-
-        first.swap({});
     });
 
 </script>
