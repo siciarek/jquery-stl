@@ -37,9 +37,11 @@ operator=  : eq(obj)
 operator[] : get(n)
 ```
 
+
 ## Demo page
 
 [http://siciarek.linuxpl.info/jquery-stl/demo/index.html](http://siciarek.linuxpl.info/jquery-stl/demo/index.html)
+
 
 ## Test suite (online)
 
