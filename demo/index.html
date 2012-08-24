@@ -53,19 +53,34 @@
 
     $(document).ready(function () {
 
-        cout('<vector>' + endl + endl);
+        var myvector;
 
-        cout('*** vector::pop_back' + endl + endl);
+        cout('<vector>');
 
-        var myvector = $.stl.vector();
+        cout(endl + endl + '*** (iterators) vector::begin, vector::end' + endl + endl);
+
+        myvector = $.stl.vector();
+
+        for (var i = 1; i <= 5; i++) myvector.push_back(i);
+
+        cout("myvector contains:");
+
+        for (var it = myvector.begin(); it.lt(myvector.end()); it.pp())
+            cout(" " + it.val());
+
+        cout(endl);
+
+        cout(endl + endl + '*** vector::pop_back' + endl + endl);
+
+        myvector = $.stl.vector();
         var sum = 0;
 
-        myvector.push_back (100);
-        myvector.push_back (200);
-        myvector.push_back (300);
+        myvector.push_back(100);
+        myvector.push_back(200);
+        myvector.push_back(300);
 
         while (!myvector.empty()) {
-            sum+=myvector.back();
+            sum += myvector.back();
             myvector.pop_back();
         }
 
@@ -79,12 +94,10 @@
         var f = [4, 5, 6];
         var s = [104, 105, 106, 107];
 
-        for(var i in f)
-        {
+        for (var i in f) {
             first.push_back(f[i]);
         }
-        for(var i in s)
-        {
+        for (var i in s) {
             second.push_back(s[i]);
         }
 

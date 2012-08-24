@@ -7,6 +7,41 @@ module("vector", {
     }
 });
 
+test("iterators (begin, end) test", function () {
+
+    expect(22);
+
+    var size = 10;
+    var temp = [];
+
+    for (var i = 0; i <= size; i++) {
+        var x = Math.random();
+        vector.push_back(x);
+        temp.push(x);
+    }
+
+    var c = 0;
+
+    for (var it = vector.begin(); it.lt(vector.end()); it.pp()) {
+        strictEqual(it.val(), temp[c++]);
+    }
+
+    vector = $.stl.vector();
+    temp = [];
+
+    for (var i = 0; i <= size; i++) {
+        var x = {name: 'element' + i, number: Math.random()};
+        vector.push_back(x);
+        temp.push(x);
+    }
+
+    c = 0;
+
+    for (var it = vector.begin(); it.lt(vector.end()); it.pp()) {
+        strictEqual(it.val(), temp[c++]);
+    }
+});
+
 test("swap test", function () {
 
     expect(19);
@@ -95,7 +130,9 @@ test("constructor test (no params)", 5, function () {
     equal(vector.type, 'vector', 'Constructor returned proper vector object');
 });
 
-test("constructor test (with params)", 4, function () {
+test("constructor test (with params)", function () {
+
+    expect(105);
 
     var vector = null;
 
@@ -119,6 +156,18 @@ test("constructor test (with params)", 4, function () {
         JqueryStlMaximumContainerSizeException,
         'constructor should throw exception if maximum available size was exceeded'
     );
+
+    size = 100;
+    var value = 124;
+
+    vector = jQuery.stl.vector(size, value);
+    equal(vector.size(), size, 'vector size should be equal to ' + size + ' if constructor was called with ' + size);
+
+    while (!vector.empty()) {
+        var x = vector.back();
+        strictEqual(x, value, 'Repetitive sequence constructor test');
+        vector.pop_back();
+    }
 });
 
 test("destructor test", 1, function () {

@@ -2,12 +2,25 @@ var stlTypesMembers = {
 
     vector: {
         variables: [
-            "type"
+            "type",
+
+            "reference", // Allocator::reference
+            "const_reference", // Allocator::const_reference
+            "iterator", // Random access iterator
+            "const_iterator", // Constant random access iterator
+            "size_type", // Unsigned integral type (usually same as size_t)
+            "difference_type", // Signed integral type (usually same as ptrdiff_t)
+            "value_type", // T
+            "allocator_type", // Allocator
+            "pointer", // Allocator::pointer
+            "const_pointer", // Allocator::const_pointer
+            "reverse_iterator", // reverse_iterator<iterator>
+            "const_reverse_iterator" // reverse_iterator<const_iterator>
         ],
         methods: [
             "new",
             "destructor",
-            "eq",
+            "asg",
             "begin",
             "end",
             "rbegin",
@@ -34,12 +47,25 @@ var stlTypesMembers = {
 
     deque: {
         variables: [
-            "type"
+            "type",
+
+            "reference", // Allocator::reference
+            "const_reference", // Allocator::const_reference
+            "iterator", // Random access iterator
+            "const_iterator", // Constant random access iterator
+            "size_type", // Unsigned integral type (usually same as size_t)
+            "difference_type", // Signed integral type (usually same as ptrdiff_t)
+            "value_type", // T
+            "allocator_type", // Allocator
+            "pointer", // Allocator::pointer
+            "const_pointer", // Allocator::const_pointer
+            "reverse_iterator", // reverse_iterator<iterator>
+            "const_reverse_iterator" // reverse_iterator<const_iterator>
         ],
         methods: [
             "new",
             "destructor",
-            "eq",
+            "asg",
             "begin",
             "end",
             "rbegin",
@@ -71,7 +97,7 @@ var stlTypesMembers = {
         methods: [
             "new",
             "destructor",
-            "eq",
+            "asg",
             "begin",
             "end",
             "rbegin",
@@ -110,7 +136,7 @@ var stlTypesMembers = {
         methods: [
             "new",
             "destructor",
-            "eq",
+            "asg",
             "begin",
             "end",
             "rbegin",
@@ -139,7 +165,7 @@ var stlTypesMembers = {
         methods: [
             "new",
             "destructor",
-            "eq",
+            "asg",
             "begin",
             "end",
             "rbegin",
@@ -168,7 +194,7 @@ var stlTypesMembers = {
         methods: [
             "new",
             "destructor",
-            "eq",
+            "asg",
             "begin",
             "end",
             "rbegin",
@@ -198,7 +224,7 @@ var stlTypesMembers = {
         methods: [
             "new",
             "destructor",
-            "eq",
+            "asg",
             "begin",
             "end",
             "rbegin",

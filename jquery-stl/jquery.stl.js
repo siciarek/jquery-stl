@@ -9,6 +9,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.opensource.org/licenses/GPL-2.0
  */
+
 (function ($, document, undefined) {
 
     $.stl = {
@@ -36,8 +37,7 @@
                         container = $.stl.deque();
                     }
 
-                    if(typeof container != 'object')
-                    {
+                    if (typeof container != 'object') {
                         throw new JqueryStlObjectTypeMismatchException();
                     }
 
@@ -153,7 +153,7 @@
                  * @param obj
                  * @return {Boolean}
                  */
-                eq: function (obj) {
+                asg: function (obj) {
 
                     return true;
                 },
@@ -370,29 +370,25 @@
                  * @throws JqueryStlObjectTypeMismatchException
                  */
                 swap: function (vec) {
-                    if(!(typeof vec == 'object' && typeof vec.type != 'undefined' && vec.type == this.type))
-                    {
+                    if (!(typeof vec == 'object' && typeof vec.type != 'undefined' && vec.type == this.type)) {
                         throw new JqueryStlObjectTypeMismatchException();
                     }
 
                     var temp = [];
 
-                    for(var i in this.container)
-                    {
+                    for (var i in this.container) {
                         temp.push(this.container[i]);
                     }
 
                     this.clear();
 
-                    for(var i in vec.container)
-                    {
+                    for (var i in vec.container) {
                         this.push_back(vec.container[i]);
                     }
 
                     vec.clear();
 
-                    for(var i in temp)
-                    {
+                    for (var i in temp) {
                         vec.push_back(temp[i]);
                     }
                 },
@@ -413,6 +409,7 @@
                 },
 
                 push_back: function (value) {
+                    this.iterator.bindex++;
                     this.container.push(value);
                 },
 
@@ -534,11 +531,11 @@
     $.stl = $.extend($.stl, stltypes);
 
 
-    var scripts= document.getElementsByTagName('script');
+    var scripts = document.getElementsByTagName('script');
     var path = null;
 
-    for(var i in scripts) {
-        if(typeof scripts[i].src != 'undefined'  && scripts[i].src.match(/jquery\.stl/)) {
+    for (var i in scripts) {
+        if (typeof scripts[i].src != 'undefined' && scripts[i].src.match(/jquery\.stl/)) {
             var pathrx = /^(.*?jquery\.stl\.)(?:.*?)$/g;
             var match = pathrx.exec(scripts[i].src);
             path = match[1];
@@ -546,6 +543,7 @@
     }
 
     document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'Exceptions' + '.js"></scr' + 'ipt>');
+    document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'iterators' + '.js"></scr' + 'ipt>');
 
     for (var type in stltypes) {
         document.write('<scr' + 'ipt type="text/javascript" src="' + path + type + '.js"></scr' + 'ipt>');

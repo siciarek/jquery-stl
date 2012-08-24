@@ -32,9 +32,9 @@ There is no need nor possibility to Template support &lt;T&gt;.
 
 Common operators are implemented with methods:
 
-```js
-operator=  : eq(obj)
-operator[] : get(n)
+```c++
+T& T::operator =(const T& b);   // asg(obj)
+R& T::operator [](const T2& b); // get(n)
 ```
 
 
