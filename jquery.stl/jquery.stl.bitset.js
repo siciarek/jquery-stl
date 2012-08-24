@@ -37,7 +37,14 @@
                  */
             },
 
-            size: defaultMembers['size'],
+
+            size: function() {
+                if(this.container == null) {
+                    return 0;
+                }
+
+                this.container.length();
+            },
 
             get: defaultMembers['get'],
 
