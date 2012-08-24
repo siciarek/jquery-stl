@@ -41,6 +41,10 @@ Common operators are implemented with methods:
 
 [http://siciarek.linuxpl.info/jquery-stl/demo/index.html](http://siciarek.linuxpl.info/jquery-stl/demo/index.html)
 
+## Test suite (online)
+
+[http://siciarek.linuxpl.info/jquery-stl/test/index.html](http://siciarek.linuxpl.info/jquery-stl/test/index.html)
+
 ## Usage
 
 ### Container classes
