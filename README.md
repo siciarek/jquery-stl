@@ -10,7 +10,7 @@ Can be used as C++ code to jQuery javascript translation.
 Include scripts *after* the jQuery library (unless you are packaging scripts somehow else):
 
 ```html
-    <script type="text/javascript" src="/path/to/jqstl/jquery.stl.js"></script>
+<script type="text/javascript" src="/path/to/jqstl/jquery.stl.js"></script>
 ```
 
 ## Limitations
@@ -18,14 +18,14 @@ Include scripts *after* the jQuery library (unless you are packaging scripts som
 At the moment constructors should be called in jQuery way, with optional parameter:
 
 ```js
-    var vector1 = $.stl.vector();
-    var vector2 = $.stl.vector(34);
+var vector1 = $.stl.vector();
+var vector2 = $.stl.vector(34);
 ```
 
 Destructor, if needed, should be called explicitly, but it does not realy destroy instance:
 
 ```js
-    vector1.destructor();
+vector1.destructor();
 ```
 
 There is no need nor possibility to Template support &lt;T&gt;.
@@ -33,8 +33,8 @@ There is no need nor possibility to Template support &lt;T&gt;.
 Common operators are implemented with methods:
 
 ```js
-    operator=  : eq(obj)
-    operator[] : get(n)
+operator=  : eq(obj)
+operator[] : get(n)
 ```
 
 ## Demo page
