@@ -1,5 +1,5 @@
 /**
- * jQuery STL multimap Plugin v1.0b
+ * jQuery STL multimap Plugin v0.4b
  * https://github.com/siciarek/jquery-stl
  *
  * Copyright 2012, Jacek Siciarek
