@@ -468,8 +468,10 @@
             }
 
             return temp;
-        },
+        }
+    };
 
+    var stltypes = {
         // Sequence Containers:
 
         vector: function () {
@@ -501,5 +503,23 @@
         priority_queue: function () {
         }
     };
+
+    $.stl = $.extend($.stl, stltypes);
+
+
+    var scripts= document.getElementsByTagName('script');
+    var path = null;
+
+    for(var i in scripts) {
+        if(typeof scripts[i].src != 'undefined'  && scripts[i].src.match(/jquery\.stl/)) {
+            var pathrx = /^(.*?jquery\.stl\.)(?:.*?)$/g;
+            var match = pathrx.exec(scripts[i].src);
+            path = match[1];
+        }
+    }
+
+    for (var type in stltypes) {
+        document.write('<scr' + 'ipt type="text/javascript" src="' + path + type + '.js"></scr' + 'ipt>');
+    }
 
 })(jQuery, document);

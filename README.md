@@ -9,9 +9,7 @@ Can be used as C++ code to jQuery javascript translation.
 
 Include scripts *after* the jQuery library (unless you are packaging scripts somehow else):
 
-    <script type="text/javascript" src="/path/to/jquery.stl.js"></script>
-    <script type="text/javascript" src="/path/to/jquery.stl/jquery.stl.vector.js"></script>
-    <script type="text/javascript" src="/path/to/jquery.stl/jquery.stl.stack.js"></script>
+    <script type="text/javascript" src="/path/to/jqstl/jquery.stl.js"></script>
 
 ## Limitations
 
