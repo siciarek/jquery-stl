@@ -14,31 +14,31 @@ function random_access_iterator(collection, findex, direction) {
     findex = findex || 0;
 
 
-    if(typeof collection == 'undefined') {
+    if (typeof collection === 'undefined') {
+        /*jshint undef:false */
         throw new JqueryStlNullPointerException();
     }
 
     this.collection = collection;
-
     this.direction = direction;
     this.findex = findex;
     this.collectionShouldHave = ['at', 'size'];
 
-    if(typeof this.collection != 'object') {
+    if (typeof this.collection !== 'object') {
+        /*jshint undef:false */
         throw new JqueryStlObjectTypeMismatchException();
     }
 
-    for(var i in this.collectionShouldHave)
-    {
-        if(typeof collection[this.collectionShouldHave[i]] == 'undefined')
-        {
+    for (var i in this.collectionShouldHave) {
+        if (typeof collection[this.collectionShouldHave[i]] === 'undefined') {
+            /*jshint undef:false */
             throw new JqueryStlObjectInvalidInterfaceException();
         }
     }
 }
 
-random_access_iterator.prototype.reset = function() {
-    this.findex = (this.direction == 1 ? 0 : this.collection.size() - 1);
+random_access_iterator.prototype.reset = function () {
+    this.findex = (this.direction === 1 ? 0 : this.collection.size() - 1);
 };
 
 random_access_iterator.prototype.val = function () {
@@ -47,8 +47,7 @@ random_access_iterator.prototype.val = function () {
 
 random_access_iterator.prototype.lt = function (iterator) {
 
-    if(iterator instanceof random_access_iterator)
-    {
+    if (iterator instanceof random_access_iterator) {
         return this.findex < iterator.findex;
     }
 
@@ -65,8 +64,8 @@ random_access_iterator.prototype.mm = function () {
 
     var temp = this.findex - this.direction;
 
-    if(!(temp >= 0 && temp < this.collection.size() - 1))
-    {
+    if (!(temp >= 0 && temp < this.collection.size() - 1)) {
+        /*jshint undef:false */
         throw JqueryStlOutOfRangeException();
     }
 
