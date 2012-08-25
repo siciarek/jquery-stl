@@ -9,7 +9,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.opensource.org/licenses/GPL-2.0
  */
-function random_access_iterator(collection, findex, direction) {
+var random_access_iterator = function(collection, findex, direction) {
     direction = direction || 1;
     findex = findex || 0;
 
