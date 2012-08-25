@@ -1,3 +1,8 @@
+0.5b
+---
+- Added Exceptions
+- Added random_access_iterator
+
 0.4b
 ---
 - Sequence Containers

@@ -1,5 +1,5 @@
 /**
- * jQuery STL Library Plugin v0.4b
+ * jQuery STL Library Plugin v0.5b
  * https://github.com/siciarek/jquery-stl
  *
  * Based on: http://www.cplusplus.com/reference/stl/

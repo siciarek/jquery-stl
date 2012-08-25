@@ -1,5 +1,5 @@
 /**
- * jQuery STL bitset Plugin v0.4b
+ * jQuery STL bitset Plugin v0.5b
  * https://github.com/siciarek/jquery-stl
  *
  * Copyright 2012, Jacek Siciarek
