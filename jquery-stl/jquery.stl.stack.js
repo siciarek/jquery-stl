@@ -34,7 +34,7 @@
             var method = containerShouldHave[i];
             if(typeof instance.container[method] == 'undefined')
             {
-                throw new JqueryStlContainerInvalidInterfaceException();
+                throw new JqueryStlObjectInvalidInterfaceException();
             }
         }
 

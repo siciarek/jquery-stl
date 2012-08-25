@@ -284,7 +284,7 @@
                  */
                 get: function (n) {
                     if (this.size() < n + 1) {
-                        throw new JqueryStlIndexOutOfBoundException();
+                        throw new JqueryStlOutOfRangeException();
                     }
 
                     return this.container[n];
@@ -298,7 +298,7 @@
                  */
                 at: function (n) {
                     if (this.size() < n + 1) {
-                        throw new JqueryStlIndexOutOfBoundException();
+                        throw new JqueryStlOutOfRangeException();
                     }
 
                     return this.container[n];
@@ -324,11 +324,11 @@
 
                 insert: function (pos, value) {
                     if (this.size() < pos + 1) {
-                        throw new JqueryStlIndexOutOfBoundException();
+                        throw new JqueryStlOutOfRangeException();
                     }
 
                     if (pos < 0) {
-                        throw new JqueryStlIndexOutOfBoundException();
+                        throw new JqueryStlOutOfRangeException();
                     }
 
                     this.container[pos] = value;
@@ -345,11 +345,11 @@
                     last = last || pos;
 
                     if (this.size() < last + 1) {
-                        throw new JqueryStlIndexOutOfBoundException();
+                        throw new JqueryStlOutOfRangeException();
                     }
 
                     if (pos < 0) {
-                        throw new JqueryStlIndexOutOfBoundException();
+                        throw new JqueryStlOutOfRangeException();
                     }
 
                     var temp = [];
@@ -409,7 +409,6 @@
                 },
 
                 push_back: function (value) {
-                    this.iterator.bindex++;
                     this.container.push(value);
                 },
 
