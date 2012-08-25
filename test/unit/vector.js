@@ -9,37 +9,24 @@ module("vector", {
 
 test("iterators (begin, end) test", function () {
 
-    expect(22);
+    // expect(22);
 
-    var size = 10;
+    var size = 2;
     var temp = [];
 
-    for (var i = 0; i <= size; i++) {
-        var x = Math.random();
+    for (var i = 0; i < size; i++) {
+        var x = i;
         vector.push_back(x);
         temp.push(x);
     }
 
-    var c = 0;
+    var xx = 0;
 
     for (var it = vector.begin(); it.lt(vector.end()); it.pp()) {
-        strictEqual(it.val(), temp[c++]);
+        strictEqual(it.val(), temp.shift(), 'ok ' + xx++);
     }
 
-    vector = $.stl.vector();
-    temp = [];
-
-    for (var i = 0; i <= size; i++) {
-        var x = {name: 'element' + i, number: Math.random()};
-        vector.push_back(x);
-        temp.push(x);
-    }
-
-    c = 0;
-
-    for (var it = vector.begin(); it.lt(vector.end()); it.pp()) {
-        strictEqual(it.val(), temp[c++]);
-    }
+    strictEqual(temp.length, 0);
 });
 
 test("swap test", function () {

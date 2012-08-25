@@ -60,7 +60,7 @@ test("constructor test (with params)", 7, function () {
             var set = $.stl.set();
             stack = $.stl.stack(set);
         },
-        JqueryStlContainerInvalidInterfaceException,
+        JqueryStlObjectInvalidInterfaceException,
         'constructor should throw exception if container given as parameter has no required interface'
     );
 
@@ -68,7 +68,7 @@ test("constructor test (with params)", 7, function () {
         function () {
             stack = $.stl.stack({});
         },
-        JqueryStlContainerInvalidInterfaceException,
+        JqueryStlObjectInvalidInterfaceException,
         'constructor should throw exception if container given as parameter has no required interface'
     );
 
