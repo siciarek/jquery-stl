@@ -42,7 +42,6 @@ random_access_iterator.prototype.reset = function() {
 };
 
 random_access_iterator.prototype.val = function () {
-    console.log(this.findex);
     return this.collection.at(this.findex);
 };
 
@@ -50,8 +49,6 @@ random_access_iterator.prototype.lt = function (iterator) {
 
     if(iterator instanceof random_access_iterator)
     {
-        console.log(this.findex + " | " + iterator.findex + ' | ' + this.collection.container.toSource());
-
         return this.findex < iterator.findex;
     }
 
