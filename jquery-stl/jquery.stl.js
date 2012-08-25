@@ -542,7 +542,7 @@
         }
     }
 
-    document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'Exceptions' + '.js"></scr' + 'ipt>');
+    document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'exceptions' + '.js"></scr' + 'ipt>');
     document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'iterators' + '.js"></scr' + 'ipt>');
 
     for (var type in stltypes) {

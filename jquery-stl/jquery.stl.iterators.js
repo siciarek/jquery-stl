@@ -11,7 +11,7 @@ function random_access_iterator(collection, direction, findex, bindex) {
 
 random_access_iterator.prototype.reset = function() {
     this.findex = 0;
-    this.bindex = (collection.size() > 0 ? collection.size() - 1 : 0);
+    this.bindex = (this.collection.size() > 0 ? this.collection.size() - 1 : 0);
 };
 
 random_access_iterator.prototype.lt = function (iterator) {
@@ -19,6 +19,9 @@ random_access_iterator.prototype.lt = function (iterator) {
     {
         return this.findex < iterator.findex;
     }
+
+    /*jshint undef:false */
+
     throw new JqueryStlObjectTypeMismatchException();
 };
 
