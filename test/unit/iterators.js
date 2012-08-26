@@ -52,7 +52,7 @@ module("iterators", {
     }
 });
 
-test("constructor test", function () {
+test("random_access_iterator constructor test", function () {
 
     throws(
         function () {
@@ -78,8 +78,9 @@ test("constructor test", function () {
         'method should throw exception if collection has invalid interface'
     );
 
-    iterator = new random_access_iterator(testcollection);
+    iterator = new random_access_iterator(testcollection, 0);
     ok(true);
+
 
     for (i = 0; i < testcollection.container.length; i++) {
         strictEqual(testcollection.container[i], iterator.val());
@@ -93,7 +94,9 @@ test("constructor test", function () {
         JqueryStlOutOfRangeException(),
         'method should throw exception if iterator is out of range'
     );
+});
 
+test('random_access_iterator val, pp test', function() {
     var size = 2;
     var temp = [];
 
@@ -109,6 +112,28 @@ test("constructor test", function () {
 
     for (var it = vector.begin(); it.lt(vector.end()); it.pp()) {
         strictEqual(it.val(), temp.shift(), 'ok ' + xx++);
+    }
+
+    strictEqual(temp.length, 0);
+});
+
+
+test('reverse_random_access_iterator val, pp test', function() {
+    var size = 10;
+    var temp = [];
+
+    vector = $.stl.vector();
+
+    for (var i = 0; i < size; i++) {
+        var x = i;
+        vector.push_back(x);
+        temp.push(x);
+    }
+
+    var xx = 0;
+
+    for (var rit = vector.rbegin(); rit.lt(vector.rend()); rit.pp()) {
+        strictEqual(rit.val(), temp.pop(), 'ok ' + xx++);
     }
 
     strictEqual(temp.length, 0);

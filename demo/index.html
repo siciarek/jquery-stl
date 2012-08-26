@@ -51,9 +51,9 @@
 
     $(document).ready(function () {
 
-// ------------------------------------------------------------------
-
         var myvector;
+
+// ------------------------------------------------------------------
 
         cout('<vector>');
 
@@ -67,6 +67,26 @@
 
         for (var it = myvector.begin(); it.lt(myvector.end()); it.pp())
             cout(" " + it.val());
+
+        cout(endl);
+
+// ------------------------------------------------------------------
+
+        cout(endl + endl + '*** (iterators) vector::rbegin, vector::rend' + endl + endl);
+
+        myvector = $.stl.vector();
+
+        for (var i = 1; i <= 5; i++) myvector.push_back(i);
+
+        cout("myvector contains:");
+
+        try {
+        for (var rit = myvector.rbegin(); rit.lt(myvector.rend()); rit.pp())
+            cout(" " + rit.val());
+        }
+        catch(e) {
+            cout('EXCEPTION: ' + e.toSource());
+        }
 
         cout(endl);
 
