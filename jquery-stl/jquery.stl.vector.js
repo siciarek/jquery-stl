@@ -61,39 +61,6 @@
                 }
             },
 
-            begin: function () {
-                return new random_access_iterator(this, 0);
-            },
-
-            end: function () {
-                return new random_access_iterator(this, this.size() - 1);
-            },
-
-            rbegin: function () {
-                return new reverse_random_access_iterator(this, this.size() - 1);
-            },
-
-            rend: function () {
-                return new reverse_random_access_iterator(this, 0);
-            },
-
-            push_back: function (val) {
-                this.container.push(val);
-            },
-
-            at: function (n) {
-
-                if (n >= this.container.length) {
-                    throw new JqueryStlOutOfRangeException();
-                }
-
-                return this.container[n];
-            },
-
-            size: function () {
-                return this.container.length;
-            },
-
             capacity: function () {
                 return this.size();
             },

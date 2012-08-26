@@ -158,28 +158,22 @@
                     return true;
                 },
 
-//// TODO: iterators:
+//// iterators:
 
                 begin: function () {
-                    if (this.size() == 0) {
-                        return null;
-                    }
-                    return this.container[0];
+                    return new random_access_iterator(this, 0);
                 },
 
                 end: function () {
-                    if (this.size() == 0) {
-                        return null;
-                    }
-                    return this.container[this.size() - 1];
+                    return new random_access_iterator(this, this.size() - 1);
                 },
 
                 rbegin: function () {
-                    return this.end();
+                    return new reverse_random_access_iterator(this, this.size() - 1);
                 },
 
                 rend: function () {
-                    return this.begin();
+                    return new reverse_random_access_iterator(this, 0);
                 },
 
 //// capacity:
@@ -297,7 +291,7 @@
                  * @param n
                  */
                 at: function (n) {
-                    if (this.size() < n + 1) {
+                    if (n >= this.size()) {
                         throw new JqueryStlOutOfRangeException();
                     }
 

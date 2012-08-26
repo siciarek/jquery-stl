@@ -7,6 +7,46 @@ module("vector", {
     }
 });
 
+test('begin, end, rbegin, rend proper values test', function() {
+
+    expect(8);
+
+    var size = 10;
+    var temp = [];
+
+    // Simple data type:
+    temp = [];
+    vector = $.stl.vector();
+
+    for (var i = 0; i < size; i++) {
+        var x = Math.random();
+        vector.push_back(x);
+        temp.push(x);
+    }
+
+    strictEqual(vector.begin().val(), temp[0], 'begin');
+    strictEqual(vector.end().val(), temp[temp.length - 1], 'end');
+
+    strictEqual(vector.rbegin().val(), temp[temp.length - 1], 'rbegin');
+    strictEqual(vector.rend().val(), temp[0], 'rend');
+
+    // Objects:
+    temp = [];
+    vector = $.stl.vector();
+
+    for (var i = 0; i < size; i++) {
+        var x = {first: Math.random(), name: 'element ' + i};
+        vector.push_back(x);
+        temp.push(x);
+    }
+
+    strictEqual(vector.begin().val(), temp[0], 'begin');
+    strictEqual(vector.end().val(), temp[temp.length - 1], 'end');
+
+    strictEqual(vector.rbegin().val(), temp[temp.length - 1], 'rbegin');
+    strictEqual(vector.rend().val(), temp[0], 'rend');
+});
+
 test("iterators (begin, end) test", function () {
 
     // expect(22);
@@ -24,6 +64,28 @@ test("iterators (begin, end) test", function () {
 
     for (var it = vector.begin(); it.lt(vector.end()); it.pp()) {
         strictEqual(it.val(), temp.shift(), 'ok ' + xx++);
+    }
+
+    strictEqual(temp.length, 0);
+});
+
+test("iterators (rbegin, rend) test", function () {
+
+    // expect(22);
+
+    var size = 2;
+    var temp = [];
+
+    for (var i = 0; i < size; i++) {
+        var x = i;
+        vector.push_back(x);
+        temp.push(x);
+    }
+
+    var xx = 0;
+
+    for (var it = vector.rbegin(); it.lt(vector.rend()); it.pp()) {
+        strictEqual(it.val(), temp.pop(), 'ok ' + xx++);
     }
 
     strictEqual(temp.length, 0);
