@@ -18,11 +18,11 @@
     "licenses": [
         {
             "type": "MIT",
-            "url": "https://github.com/jsiciarek/myjqproj/blob/master/LICENSE-MIT"
+            "url": "http://www.opensource.org/licenses/mit-license.php"
         },
         {
             "type": "GPL",
-            "url": "https://github.com/jsiciarek/myjqproj/blob/master/LICENSE-GPL"
+            "url": "http://www.opensource.org/licenses/GPL-2.0"
         }
     ],
     "dependencies": {

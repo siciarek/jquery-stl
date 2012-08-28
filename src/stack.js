@@ -1,45 +1,32 @@
-/**
- * jQuery STL stack Plugin v0.5b
- * https://github.com/siciarek/jquery-stl
- *
- * Copyright 2012, Jacek Siciarek
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.opensource.org/licenses/GPL-2.0
- */
-(function ($, document, undefined) {
+$.stl.stack = function (container) {
 
-    $.stl.stack = function (container) {
+    var defaultMembers = $.stl.getContainerAdaptorMembers({
+        front: true,
+        back: true
+    });
 
-        var defaultMembers = $.stl.getContainerAdaptorMembers({
-            front: true,
-            back: true
-        });
-
-        var containerShouldHave = [
-            'back',
-            'push_back',
-            'pop_back'
-        ];
+    var containerShouldHave = [
+        'back',
+        'push_back',
+        'pop_back'
+    ];
 
 
-        var uniqueMembers = {};
+    var uniqueMembers = {};
 
-        var instance = $.extend({type: 'stack'}, defaultMembers, uniqueMembers);
+    var instance = $.extend({type: 'stack'}, defaultMembers, uniqueMembers);
 
-        instance.create(container);
+    instance.create(container);
 
-        for (var i in containerShouldHave) {
-            if (containerShouldHave.hasOwnProperty(i)) {
+    for (var i in containerShouldHave) {
+        if (containerShouldHave.hasOwnProperty(i)) {
 
-                var method = containerShouldHave[i];
-                if (typeof instance.container[method] === 'undefined') {
-                    throw new JqueryStlObjectInvalidInterfaceException();
-                }
+            var method = containerShouldHave[i];
+            if (typeof instance.container[method] === 'undefined') {
+                throw new JqueryStlObjectInvalidInterfaceException();
             }
         }
+    }
 
-        return instance;
-    };
-
-})(jQuery, document);
+    return instance;
+};
