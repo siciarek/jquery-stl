@@ -13,6 +13,11 @@ module.exports = function (grunt) {
         return data;
     }
 
+    var distpaths = [
+        'dist/jquery.stl.js',
+        'dist/jquery.stl.min.js'
+    ];
+
     // Project configuration.
     grunt.initConfig({
 
@@ -122,13 +127,38 @@ module.exports = function (grunt) {
             ]
         },
 
-        uglify: {
+        compare_size: {
+            files: distpaths
+        },
 
+        jasmine: {
+            all: {
+                src:['specs/specrunner.html'],
+                errorReporting: true
+            }
+        },
+
+        uglify: {
+            files: distpaths[0]
         }
     });
 
+    grunt.registerTask('regular', function( commit, configFile ) {
+        console.log('\n\n *** REGULAR RUN ***\n\n');
+    });
+
+    grunt.registerTask('extended', function( commit, configFile ) {
+        console.log('\n\n *** EXTENDED RUN ***\n\n');
+    });
+
     // Default task.
-    grunt.registerTask('default', 'concat min lint qunit');
+    grunt.registerTask('default', 'regular concat min lint qunit');
+
+    grunt.registerTask('max', 'extended concat min lint qunit compare_size');
     grunt.registerTask('sntx', 'concat lint');
     grunt.registerTask('test', 'concat qunit');
+
+    // Load grunt tasks from NPM packages
+    grunt.loadNpmTasks( "grunt-compare-size" );
+    grunt.loadNpmTasks( "grunt-jasmine-task" );
 };
