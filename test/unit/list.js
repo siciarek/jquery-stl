@@ -16,7 +16,7 @@ test("constructor test (no params)", 5, function () {
     list = jQuery.stl.list();
 
     ok(list != null, 'Constructor returned value != NULL');
-    ok(typeof list.new != 'undefined', 'list has defined constructor');
+    ok(typeof list.create != 'undefined', 'list has defined constructor');
     equal(typeof list, 'object', 'Constructor returned object');
     equal(list.type, 'list', 'Constructor returned proper list object');
 });

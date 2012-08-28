@@ -27,14 +27,15 @@
 
         var instance = $.extend({type: 'stack'}, defaultMembers, uniqueMembers);
 
-        instance.new(container);
+        instance.create(container);
 
-        for(var i in containerShouldHave)
-        {
-            var method = containerShouldHave[i];
-            if(typeof instance.container[method] == 'undefined')
-            {
-                throw new JqueryStlObjectInvalidInterfaceException();
+        for (var i in containerShouldHave) {
+            if (containerShouldHave.hasOwnProperty(i)) {
+
+                var method = containerShouldHave[i];
+                if (typeof instance.container[method] === 'undefined') {
+                    throw new JqueryStlObjectInvalidInterfaceException();
+                }
             }
         }
 

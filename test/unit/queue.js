@@ -40,7 +40,7 @@ test("constructor test (no params)", 5, function () {
     queue = jQuery.stl.queue();
 
     ok(queue != null, 'Constructor returned value != NULL');
-    ok(typeof queue.new != 'undefined', 'queue has defined constructor');
+    ok(typeof queue.create != 'undefined', 'queue has defined constructor');
     equal(typeof queue, 'object', 'Constructor returned object');
     equal(queue.type, 'queue', 'Constructor returned proper queue object');
 });

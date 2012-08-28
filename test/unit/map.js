@@ -16,7 +16,7 @@ test("constructor test (no params)", 5, function () {
     map = jQuery.stl.map();
 
     ok(map != null, 'Constructor returned value != NULL');
-    ok(typeof map.new != 'undefined', 'map has defined constructor');
+    ok(typeof map.create != 'undefined', 'map has defined constructor');
     equal(typeof map, 'object', 'Constructor returned object');
     equal(map.type, 'map', 'Constructor returned proper map object');
 });

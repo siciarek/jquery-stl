@@ -7,6 +7,59 @@ module("vector", {
     }
 });
 
+
+test("swap test", function () {
+
+    // expect(19);
+
+    var first = $.stl.vector();
+    var second = $.stl.vector();
+
+    var f = [4, 5, 6];
+    var s = [104, 105, 106, 107, 108, 109];
+
+    for (var i in f) {
+        first.push_back(f[i]);
+    }
+
+    for (var i in s) {
+        second.push_back(s[i]);
+    }
+
+    strictEqual(first.size(), f.length);
+    strictEqual(second.size(), s.length);
+
+    for (var i = 0; i < first.size(); i++) {
+        strictEqual(first.at(i), f[i]);
+    }
+
+    for (var i = 0; i < second.size(); i++) {
+        strictEqual(second.at(i), s[i]);
+    }
+
+    first.swap(second);
+
+
+    strictEqual(first.size(), s.length);
+    strictEqual(second.size(), f.length);
+
+    for (var i = 0; i < first.size(); i++) {
+        strictEqual(first.at(i), s[i]);
+    }
+
+    for (var i = 0; i < second.size(); i++) {
+        strictEqual(second.at(i), f[i]);
+    }
+
+    throws(
+        function () {
+            first.swap({});
+        },
+        JqueryStlObjectTypeMismatchException,
+        'method should throw exception if no vector object was given as a parameter'
+    );
+});
+
 test('begin, end, rbegin, rend proper values test', function() {
 
     expect(8);
@@ -91,57 +144,6 @@ test("iterators (rbegin, rend) test", function () {
     strictEqual(temp.length, 0);
 });
 
-test("swap test", function () {
-
-    expect(19);
-
-    var first = $.stl.vector();
-    var second = $.stl.vector();
-
-    var f = [4, 5, 6];
-    var s = [104, 105, 106, 107];
-
-    for (var i in f) {
-        first.push_back(f[i]);
-    }
-
-    for (var i in s) {
-        second.push_back(s[i]);
-    }
-
-    strictEqual(first.size(), f.length);
-    strictEqual(second.size(), s.length);
-
-    for (var i = 0; i < first.size(); i++) {
-        strictEqual(first.at(i), f[i]);
-    }
-
-    for (var i = 0; i < second.size(); i++) {
-        strictEqual(second.at(i), s[i]);
-    }
-
-    first.swap(second);
-
-    strictEqual(first.size(), s.length);
-    strictEqual(second.size(), f.length);
-
-    for (var i = 0; i < first.size(); i++) {
-        strictEqual(first.at(i), s[i]);
-    }
-
-    for (var i = 0; i < second.size(); i++) {
-        strictEqual(second.at(i), f[i]);
-    }
-
-    throws(
-        function () {
-            first.swap({});
-        },
-        JqueryStlObjectTypeMismatchException,
-        'method should throw exception if no vector object was given as a parameter'
-    );
-});
-
 test("front and back test", function () {
 
     var myvector = $.stl.vector();
@@ -174,7 +176,7 @@ test("constructor test (no params)", 5, function () {
     vector = jQuery.stl.vector();
 
     ok(vector != null, 'Constructor returned value != NULL');
-    ok(typeof vector.new != 'undefined', 'vector has defined constructor');
+    ok(typeof vector.create != 'undefined', 'vector has defined constructor');
     equal(typeof vector, 'object', 'Constructor returned object');
     equal(vector.type, 'vector', 'Constructor returned proper vector object');
 });

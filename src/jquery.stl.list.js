@@ -25,8 +25,8 @@
             remove: function (value) {
                 var temp = [];
 
-                for(var i = 0; i < this.size(); i++) {
-                    if(this.container[i] != value) {
+                for (var i = 0; i < this.size(); i++) {
+                    if (this.container[i] !== value) {
                         temp.push(this.container[i]);
                     }
                 }
@@ -38,17 +38,21 @@
             },
             unique: function (binary_pred) {
 
-                binary_pred = binary_pred | function(a, b) { return a == b; };
+                binary_pred = binary_pred | function (a, b) {
+                    return a === b;
+                };
 
                 var tempa = {};
                 var temp = [];
 
-                for(var i = 0; i < this.size(); i++) {
+                for (var i = 0; i < this.size(); i++) {
                     tempa[this.container[i].toSource()] = i;
                 }
 
-                for(var key in tempa) {
-                    temp.push(this.container[tempa[key]]);
+                for (var key in tempa) {
+                    if (tempa.hasOwnProperty(key)) {
+                        temp.push(this.container[tempa[key]]);
+                    }
                 }
 
                 this.container = temp;
@@ -62,7 +66,7 @@
             reverse: function () {
                 var temp = [];
 
-                for(var i = 0; i < this.size(); i++) {
+                for (var i = 0; i < this.size(); i++) {
                     temp.unshift(this.container[i]);
                 }
 
@@ -71,7 +75,7 @@
         };
 
         var instance = $.extend({type: 'list'}, containerMembers, uniqueMembers);
-        instance.new(size);
+        instance.create(size);
         return instance;
     };
 

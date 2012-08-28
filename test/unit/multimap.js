@@ -16,7 +16,7 @@ test("constructor test (no params)", 5, function () {
     multimap = jQuery.stl.multimap();
 
     ok(multimap != null, 'Constructor returned value != NULL');
-    ok(typeof multimap.new != 'undefined', 'multimap has defined constructor');
+    ok(typeof multimap.create != 'undefined', 'multimap has defined constructor');
     equal(typeof multimap, 'object', 'Constructor returned object');
     equal(multimap.type, 'multimap', 'Constructor returned proper multimap object');
 });

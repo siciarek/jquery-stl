@@ -18,7 +18,7 @@ var stlTypesMembers = {
             "const_reverse_iterator" // reverse_iterator<const_iterator>
         ],
         methods: [
-            "new",
+            "create",
             "destructor",
             "asg",
             "begin",
@@ -63,7 +63,7 @@ var stlTypesMembers = {
             "const_reverse_iterator" // reverse_iterator<const_iterator>
         ],
         methods: [
-            "new",
+            "create",
             "destructor",
             "asg",
             "begin",
@@ -95,7 +95,7 @@ var stlTypesMembers = {
             "type"
         ],
         methods: [
-            "new",
+            "create",
             "destructor",
             "asg",
             "begin",
@@ -134,7 +134,7 @@ var stlTypesMembers = {
             'type'
         ],
         methods: [
-            "new",
+            "create",
             "destructor",
             "asg",
             "begin",
@@ -163,7 +163,7 @@ var stlTypesMembers = {
             'type'
         ],
         methods: [
-            "new",
+            "create",
             "destructor",
             "asg",
             "begin",
@@ -192,7 +192,7 @@ var stlTypesMembers = {
             'type'
         ],
         methods: [
-            "new",
+            "create",
             "destructor",
             "asg",
             "begin",
@@ -222,7 +222,7 @@ var stlTypesMembers = {
             'type'
         ],
         methods: [
-            "new",
+            "create",
             "destructor",
             "asg",
             "begin",
@@ -251,7 +251,7 @@ var stlTypesMembers = {
             'type'
         ],
         methods: [
-            "new",
+            "create",
             "operators",
             "size",
             "get",
@@ -272,7 +272,7 @@ var stlTypesMembers = {
             'type'
         ],
         methods: [
-            "new",
+            "create",
             'size',
             'empty',
             'top',
@@ -286,7 +286,7 @@ var stlTypesMembers = {
             'type'
         ],
         methods: [
-            "new",
+            "create",
             'size',
             'empty',
             'front',
@@ -301,7 +301,7 @@ var stlTypesMembers = {
             'type'
         ],
         methods: [
-            "new",
+            "create",
             'size',
             'empty',
             'top',

@@ -40,7 +40,7 @@ test("constructor test (no params)", 5, function () {
     stack = jQuery.stl.stack();
 
     ok(stack != null, 'Constructor returned value != NULL');
-    ok(typeof stack.new != 'undefined', 'stack has defined constructor');
+    ok(typeof stack.create != 'undefined', 'stack has defined constructor');
     equal(typeof stack, 'object', 'Constructor returned object');
     equal(stack.type, 'stack', 'Constructor returned proper stack object');
 });

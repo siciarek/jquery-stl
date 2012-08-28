@@ -77,7 +77,7 @@ test("constructor test (no params)", 5, function () {
     priority_queue = jQuery.stl.priority_queue();
 
     ok(priority_queue != null, 'Constructor returned value != NULL');
-    ok(typeof priority_queue.new != 'undefined', 'priority_queue has defined constructor');
+    ok(typeof priority_queue.create != 'undefined', 'priority_queue has defined constructor');
     equal(typeof priority_queue, 'object', 'Constructor returned object');
     equal(priority_queue.type, 'priority_queue', 'Constructor returned proper priority_queue object');
 });

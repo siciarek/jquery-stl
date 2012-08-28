@@ -31,13 +31,13 @@
                  *
                  * @param container
                  */
-                new: function (container) {
+                create: function (container) {
 
-                    if (typeof container == 'undefined') {
+                    if (typeof container === 'undefined') {
                         container = $.stl.deque();
                     }
 
-                    if (typeof container != 'object') {
+                    if (typeof container !== 'object') {
                         throw new JqueryStlObjectTypeMismatchException();
                     }
 
@@ -106,7 +106,7 @@
             };
 
             for (var key in instance) {
-                if (typeof exclude[key] == 'undefined') {
+                if (typeof exclude[key] === 'undefined') {
                     temp[key] = instance[key];
                 }
             }
@@ -132,9 +132,9 @@
                  *
                  * @param size
                  */
-                new: function (size) {
+                create: function (size) {
 
-                    if (typeof size == 'undefined') {
+                    if (typeof size === 'undefined') {
                         size = 0;
                     }
 
@@ -145,7 +145,7 @@
                  * Destructor - TODO: make it work ;-)
                  */
                 destructor: function () {
-                    delete this;
+
                 },
 
                 /**
@@ -203,7 +203,7 @@
                  * @return {Boolean}
                  */
                 empty: function () {
-                    return this.container.length == 0;
+                    return this.container.length === 0;
                 },
 
                 /**
@@ -215,11 +215,11 @@
                  */
                 resize: function (sz, c) {
 
-                    if (typeof sz == 'undefined') {
+                    if (typeof sz === 'undefined') {
                         sz = 0;
                     }
 
-                    if (typeof c == 'undefined') {
+                    if (typeof c === 'undefined') {
                         c = null;
                     }
 
@@ -231,17 +231,17 @@
 
                         var temp = [];
 
-                        for (var i = 0; i < this.size(); i++) {
+                        for (i = 0; i < this.size(); i++) {
                             temp[i] = this.container[i];
                         }
 
                         this.container = [];
 
-                        for (var i = 0; i < sz; i++) {
+                        for (i = 0; i < sz; i++) {
                             this.container.push(c);
                         }
 
-                        for (var i = 0; i < temp.length; i++) {
+                        for (i = 0; i < temp.length; i++) {
                             this.container[i] = temp[i];
                         }
                     }
@@ -254,7 +254,7 @@
                  * @return {*}
                  */
                 front: function () {
-                    if (this.size() == 0) {
+                    if (this.size() === 0) {
                         return null;
                     }
                     return this.container[0];
@@ -265,7 +265,7 @@
                  * @return {*}
                  */
                 back: function () {
-                    if (this.size() == 0) {
+                    if (this.size() === 0) {
                         return null;
                     }
                     return this.container[this.size() - 1];
@@ -348,7 +348,7 @@
 
                     var temp = [];
 
-                    for (var i = pos; i <= last; i++) {
+                    for (i = pos; i <= last; i++) {
                         temp.push[this.container[i]];
                     }
 
@@ -364,25 +364,25 @@
                  * @throws JqueryStlObjectTypeMismatchException
                  */
                 swap: function (vec) {
-                    if (!(typeof vec == 'object' && typeof vec.type != 'undefined' && vec.type == this.type)) {
+                    if (!(typeof vec === 'object' && typeof vec.type !== 'undefined' && vec.type === this.type)) {
                         throw new JqueryStlObjectTypeMismatchException();
                     }
 
                     var temp = [];
 
-                    for (var i in this.container) {
-                        temp.push(this.container[i]);
+                    for (i = 0; i < this.size(); i++) {
+                        temp.push(this.at(i));
                     }
 
                     this.clear();
 
-                    for (var i in vec.container) {
-                        this.push_back(vec.container[i]);
+                    for (i = 0; i < vec.size(); i++) {
+                        this.push_back(vec.at(i));
                     }
 
                     vec.clear();
 
-                    for (var i in temp) {
+                    for (i = 0; i < temp.length; i++) {
                         vec.push_back(temp[i]);
                     }
                 },
@@ -414,7 +414,7 @@
 
             var associative = {
 
-                new: function (size) {
+                create: function (size) {
 
                 },
 
@@ -467,19 +467,23 @@
 
             for (var key in sequence) {
 
-                if ((assoc == true) && (typeof assoc_exclude[key] != 'undefined')) {
-                    continue;
-                }
+                if (sequence.hasOwnProperty(key)) {
+                    if ((assoc === true) && (typeof assoc_exclude[key] !== 'undefined')) {
+                        continue;
+                    }
 
-                if (typeof exclude[key] == 'undefined') {
-                    temp[key] = sequence[key];
+                    if (typeof exclude[key] === 'undefined') {
+                        temp[key] = sequence[key];
+                    }
                 }
             }
 
-            if (assoc == true) {
-                for (var key in associative) {
-                    if (typeof exclude[key] == 'undefined') {
-                        temp[key] = associative[key];
+            if (assoc === true) {
+                for (key in associative) {
+                    if (associative.hasOwnProperty(key)) {
+                        if (typeof exclude[key] === 'undefined') {
+                            temp[key] = associative[key];
+                        }
                     }
                 }
             }
@@ -524,22 +528,25 @@
     $.stl = $.extend($.stl, stltypes);
 
 
-    var scripts = document.getElementsByTagName('script');
-    var path = null;
-
-    for (var i in scripts) {
-        if (typeof scripts[i].src != 'undefined' && scripts[i].src.match(/jquery\.stl/)) {
-            var pathrx = /^(.*?jquery\.stl\.)(?:.*?)$/g;
-            var match = pathrx.exec(scripts[i].src);
-            path = match[1];
-        }
-    }
-
-    document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'exceptions' + '.js"></scr' + 'ipt>');
-    document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'iterators' + '.js"></scr' + 'ipt>');
-
-    for (var type in stltypes) {
-        document.write('<scr' + 'ipt type="text/javascript" src="' + path + type + '.js"></scr' + 'ipt>');
-    }
+//    var scripts = document.getElementsByTagName('script');
+//    var path = null;
+//
+//    for (i = 0; i < scripts.length; i++) {
+//        if (typeof scripts[i].src !== 'undefined' && scripts[i].src.match(/jquery\.stl/)) {
+//            var pathrx = /^(.*?jquery\.stl\.)(?:.*?)$/g;
+//            var match = pathrx.exec(scripts[i].src);
+//            path = match[1];
+//        }
+//    }
+//
+//    /*jslint evil: true */
+//    document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'exceptions' + '.js"></scr' + 'ipt>');
+//    document.write('<scr' + 'ipt type="text/javascript" src="' + path + 'iterators' + '.js"></scr' + 'ipt>');
+//
+//    for (var type in stltypes) {
+//        if (stltypes.hasOwnProperty(type)) {
+//            document.write('<scr' + 'ipt type="text/javascript" src="' + path + type + '.js"></scr' + 'ipt>');
+//        }
+//    }
 
 })(jQuery, document);

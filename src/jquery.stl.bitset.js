@@ -17,7 +17,7 @@
 
             container: null,
 
-            new: function(val) {
+            create: function(val) {
 
             },
 
@@ -46,9 +46,9 @@
                 this.container.length();
             },
 
-            get: defaultMembers['get'],
+            get: defaultMembers.get,
 
-            count: defaultMembers['size']
+            count: defaultMembers.size
         };
 
         var uniqueMembers = {
@@ -87,7 +87,7 @@
         };
 
         var instance = $.extend({type: 'bitset'}, containerMembers, uniqueMembers);
-        instance.new(size);
+        instance.create(size);
         return instance;
     };
 

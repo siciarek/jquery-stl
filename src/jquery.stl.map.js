@@ -1,5 +1,5 @@
 /**
- * jQuery STL set Plugin v0.5b
+ * jQuery STL map Plugin v0.5b
  * https://github.com/siciarek/jquery-stl
  *
  * Copyright 2012, Jacek Siciarek
@@ -9,18 +9,15 @@
  */
 (function ($, document, undefined) {
 
-    $.stl.set = function (size) {
+    $.stl.map = function (size) {
 
-        var excludedMembers = {
-
-            get: true
-       };
+        var excludedMembers = {};
 
         var containerMembers = $.stl.getContainerMembers(excludedMembers, true);
         var uniqueMembers = {};
 
-        var instance = $.extend({type: 'set'}, containerMembers, uniqueMembers);
-        instance.new(size);
+        var instance = $.extend({type: 'map'}, containerMembers, uniqueMembers);
+        instance.create(size);
         return instance;
     };
 

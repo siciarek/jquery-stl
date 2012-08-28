@@ -1,5 +1,5 @@
 {
-    "passfail": true,
+    "passfail": false,
     "unused": true,
     "jquery": true,
     "browser": true,

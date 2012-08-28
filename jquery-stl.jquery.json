@@ -1,0 +1,32 @@
+{
+    "name": "jquery-stl",
+    "title": "jQuery STL",
+    "description": "C++ Standard template library emulator for jQuery.",
+    "version": "0.1.0",
+    "homepage": "https://github.com/jsiciarek/jquery-stl",
+    "author": {
+        "name": "siciarek",
+        "email": "siciarek@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/jsiciarek/jquery-stl.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jsiciarek/jquery-stl/issues"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/jsiciarek/myjqproj/blob/master/LICENSE-MIT"
+        },
+        {
+            "type": "GPL",
+            "url": "https://github.com/jsiciarek/myjqproj/blob/master/LICENSE-GPL"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">= 1.6"
+    },
+    "keywords": []
+}

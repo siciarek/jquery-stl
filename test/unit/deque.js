@@ -16,7 +16,7 @@ test("constructor test (no params)", 5, function () {
     deque = jQuery.stl.deque();
 
     ok(deque != null, 'Constructor returned value != NULL');
-    ok(typeof deque.new != 'undefined', 'deque has defined constructor');
+    ok(typeof deque.create != 'undefined', 'deque has defined constructor');
     equal(typeof deque, 'object', 'Constructor returned object');
     equal(deque.type, 'deque', 'Constructor returned proper deque object');
 });

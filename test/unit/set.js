@@ -16,7 +16,7 @@ test("constructor test (no params)", 5, function () {
     set = jQuery.stl.set();
 
     ok(set != null, 'Constructor returned value != NULL');
-    ok(typeof set.new != 'undefined', 'set has defined constructor');
+    ok(typeof set.create != 'undefined', 'set has defined constructor');
     equal(typeof set, 'object', 'Constructor returned object');
     equal(set.type, 'set', 'Constructor returned proper set object');
 });

@@ -38,7 +38,7 @@
              * @param n
              * @param value
              */
-            new: function (n, value) {
+            create: function (n, value) {
 
                 n = n || -1;
 
@@ -46,7 +46,7 @@
                     n = 0;
                 }
 
-                if (typeof value == 'undefined') {
+                if (typeof value === 'undefined') {
                     value = null;
                 }
 
@@ -80,11 +80,11 @@
 
                     this.container = [];
 
-                    for (var i = 0; i < size; i++) {
+                    for (i = 0; i < size; i++) {
                         this.container.push(null);
                     }
 
-                    for (var i = 0; i < temp.length; i++) {
+                    for (i = 0; i < temp.length; i++) {
                         this.container[i] = temp[i];
                     }
                 }
@@ -107,7 +107,7 @@
         };
 
         var instance = $.extend({type: 'vector'}, containerVariables, containerMembers, uniqueMembers);
-        instance.new(size, value);
+        instance.create(size, value);
 
         return instance;
     };

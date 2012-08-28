@@ -16,7 +16,7 @@ test("constructor test (no params)", 5, function () {
     multiset = jQuery.stl.multiset();
 
     ok(multiset != null, 'Constructor returned value != NULL');
-    ok(typeof multiset.new != 'undefined', 'multiset has defined constructor');
+    ok(typeof multiset.create != 'undefined', 'multiset has defined constructor');
     equal(typeof multiset, 'object', 'Constructor returned object');
     equal(multiset.type, 'multiset', 'Constructor returned proper multiset object');
 });

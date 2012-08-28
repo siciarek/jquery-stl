@@ -16,7 +16,7 @@ test("constructor test (no params)", 5, function () {
     bitset = jQuery.stl.bitset();
 
     ok(bitset != null, 'Constructor returned value != NULL');
-    ok(typeof bitset.new != 'undefined', 'bitset has defined constructor');
+    ok(typeof bitset.create != 'undefined', 'bitset has defined constructor');
     equal(typeof bitset, 'object', 'Constructor returned object');
     equal(bitset.type, 'bitset', 'Constructor returned proper bitset object');
 });

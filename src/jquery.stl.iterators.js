@@ -15,7 +15,7 @@
 var random_access_iterator = function(collection, findex) {
 
     if (typeof collection === 'undefined') {
-        /*jshint undef:false */
+
         throw new JqueryStlNullPointerException();
     }
 
@@ -25,17 +25,17 @@ var random_access_iterator = function(collection, findex) {
     this.collectionShouldHave = ['at', 'size'];
 
     if (typeof this.collection !== 'object') {
-        /*jshint undef:false */
+
         throw new JqueryStlObjectTypeMismatchException();
     }
 
     for (var i in this.collectionShouldHave) {
         if (typeof collection[this.collectionShouldHave[i]] === 'undefined') {
-            /*jshint undef:false */
+
             throw new JqueryStlObjectInvalidInterfaceException();
         }
     }
-}
+};
 
 random_access_iterator.prototype.val = function () {
     return this.collection.at(this.findex);
@@ -55,7 +55,7 @@ random_access_iterator.prototype.lt = function (iterator) {
         return this.findex <= iterator.findex;
     }
 
-    /*jshint undef:false */
+
     throw new JqueryStlObjectTypeMismatchException();
 };
 
@@ -83,7 +83,7 @@ random_access_iterator.prototype.mm = function () {
 var reverse_random_access_iterator = function(collection, findex) {
 
     if (typeof collection === 'undefined') {
-        /*jshint undef:false */
+
         throw new JqueryStlNullPointerException();
     }
 
@@ -93,17 +93,17 @@ var reverse_random_access_iterator = function(collection, findex) {
     this.collectionShouldHave = ['at', 'size'];
 
     if (typeof this.collection !== 'object') {
-        /*jshint undef:false */
+
         throw new JqueryStlObjectTypeMismatchException();
     }
 
     for (var i in this.collectionShouldHave) {
         if (typeof collection[this.collectionShouldHave[i]] === 'undefined') {
-            /*jshint undef:false */
+
             throw new JqueryStlObjectInvalidInterfaceException();
         }
     }
-}
+};
 
 reverse_random_access_iterator.prototype.val = function () {
     return this.collection.at(this.findex);
@@ -123,7 +123,7 @@ reverse_random_access_iterator.prototype.lt = function (iterator) {
         return this.findex >= iterator.findex;
     }
 
-    /*jshint undef:false */
+
     throw new JqueryStlObjectTypeMismatchException();
 };
 

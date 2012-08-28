@@ -1,5 +1,5 @@
 /**
- * jQuery STL multimap Plugin v0.5b
+ * jQuery STL set Plugin v0.5b
  * https://github.com/siciarek/jquery-stl
  *
  * Copyright 2012, Jacek Siciarek
@@ -9,17 +9,18 @@
  */
 (function ($, document, undefined) {
 
-    $.stl.multimap = function (size) {
+    $.stl.set = function (size) {
 
         var excludedMembers = {
+
             get: true
-        };
+       };
 
         var containerMembers = $.stl.getContainerMembers(excludedMembers, true);
         var uniqueMembers = {};
 
-        var instance = $.extend({type: 'multimap'}, containerMembers, uniqueMembers);
-        instance.new(size);
+        var instance = $.extend({type: 'set'}, containerMembers, uniqueMembers);
+        instance.create(size);
         return instance;
     };
 

@@ -29,7 +29,7 @@
         };
 
         var instance = $.extend({type: 'deque'}, containerVariables, containerMembers, uniqueMembers);
-        instance.new(size);
+        instance.create(size);
 
         instance.iterator = new random_access_iterator(instance, 1, 0, size - 1);
 
