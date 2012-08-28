@@ -31,11 +31,17 @@ module.exports = function (grunt) {
 
         pkg: '<json:jquery-stl.jquery.json>',
         meta: {
-            banner: '/*!\n * <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-                '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-                '<%= pkg.homepage ? " * " + pkg.homepage + "\n" : "" %>' +
-                ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-                ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>' +
+            banner: '/*!\n' +
+                '<%= " * " + pkg.description || "" %> v<%= pkg.version %>\n' +
+                ' *\n' +
+                ' * Based on: http://www.cplusplus.com/reference/stl/\n' +
+                ' *\n' +
+                '<%= pkg.homepage ? " * GitHub: " + pkg.homepage + "\n" : "" %>' +
+                ' * Built at: <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+                ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>\n' +
+                ' * Dual licensed under the MIT or GPL Version 2 licenses.\n' +
+                ' * <%= pkg.licenses[0].url %>' +
+                ' * <%= pkg.licenses[1].url %>' +
                 '\n */',
             header: '(function ($, document, undefined) {\n\n',
             footer: '\n\n})(jQuery, document);\n'
@@ -49,6 +55,7 @@ module.exports = function (grunt) {
                     '<file_strip_banner:src/iterators.js>',
 
                     '<banner:meta.header>',
+
                     '<file_strip_banner:src/stl.js>',
 
                     '<file_strip_banner:src/vector.js>',
@@ -65,6 +72,7 @@ module.exports = function (grunt) {
                     '<file_strip_banner:src/stack.js>',
                     '<file_strip_banner:src/queue.js>',
                     '<file_strip_banner:src/priority_queue.js>',
+
                     '<banner:meta.footer>'
                 ],
                 dest: 'dist/jquery.stl.js'

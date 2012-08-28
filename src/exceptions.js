@@ -1,3 +1,7 @@
+/**
+ * Exceptions
+ */
+
 function JqueryStlNullPointerException() {
     this.code = 666;
     this.message = 'Null pointer exception';

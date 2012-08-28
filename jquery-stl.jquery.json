@@ -2,10 +2,10 @@
     "name": "jquery-stl",
     "title": "jQuery STL",
     "description": "C++ Standard template library emulator for jQuery.",
-    "version": "0.1.0",
+    "version": "0.5b",
     "homepage": "https://github.com/jsiciarek/jquery-stl",
     "author": {
-        "name": "siciarek",
+        "name": "Jacek Siciarek",
         "email": "siciarek@gmail.com"
     },
     "repository": {
