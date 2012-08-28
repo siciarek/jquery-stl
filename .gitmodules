@@ -1,3 +1,6 @@
 [submodule "test/qunit"]
 	path = test/qunit
 	url = https://github.com/jquery/qunit.git
+[submodule "jasmine-core"]
+	path = jasmine-core
+	url = https://github.com/pivotal/jasmine/tree/master/lib/jasmine-core
