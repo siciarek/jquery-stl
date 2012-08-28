@@ -29,24 +29,24 @@ module.exports = function (grunt) {
             dist: {
                 src: [
                     '<banner:meta.banner>',
-                    '<file_strip_banner:src/jquery.stl.exceptions.js>',
-                    '<file_strip_banner:src/jquery.stl.iterators.js>',
-                    '<file_strip_banner:src/jquery.stl.js>',
+                    '<file_strip_banner:src/exceptions.js>',
+                    '<file_strip_banner:src/iterators.js>',
+                    '<file_strip_banner:src/stl.js>',
 
-                    '<file_strip_banner:src/jquery.stl.vector.js>',
-                    '<file_strip_banner:src/jquery.stl.deque.js>',
-                    '<file_strip_banner:src/jquery.stl.list.js>',
+                    '<file_strip_banner:src/vector.js>',
+                    '<file_strip_banner:src/deque.js>',
+                    '<file_strip_banner:src/list.js>',
 
-                    '<file_strip_banner:src/jquery.stl.set.js>',
-                    '<file_strip_banner:src/jquery.stl.multiset.js>',
-                    '<file_strip_banner:src/jquery.stl.map.js>',
-                    '<file_strip_banner:src/jquery.stl.multimap.js>',
+                    '<file_strip_banner:src/set.js>',
+                    '<file_strip_banner:src/multiset.js>',
+                    '<file_strip_banner:src/map.js>',
+                    '<file_strip_banner:src/multimap.js>',
 
-                    '<file_strip_banner:src/jquery.stl.bitset.js>',
+                    '<file_strip_banner:src/bitset.js>',
 
-                    '<file_strip_banner:src/jquery.stl.stack.js>',
-                    '<file_strip_banner:src/jquery.stl.queue.js>',
-                    '<file_strip_banner:src/jquery.stl.priority_queue.js>'
+                    '<file_strip_banner:src/stack.js>',
+                    '<file_strip_banner:src/queue.js>',
+                    '<file_strip_banner:src/priority_queue.js>'
                 ],
                 dest: 'dist/jquery.stl.js'
             }
